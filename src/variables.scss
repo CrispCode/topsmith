@@ -1,0 +1,59 @@
+// Base font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+// Icons
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0');
+
+:root {
+    // Colors
+    --color-background: #EFF2F5;
+    --color-background-primary: #FFFFFF;
+    --color-background-secondary: #F5F8FA;
+    --color-text-primary: #181C32;
+    --color-text-secondary: #B5B5C3;
+    --color-panel-highlight-primary: #FFC64D;
+
+    // General
+    --general-font-family: 'Roboto';
+    --general-font-size: 14px;
+    --general-font-color: var(--color-text-primary);
+    --general-background-color: var(--color-background);
+
+    // Side panel
+    --side-font-color: var(--color-text-secondary);
+    --side-background-color: var(--color-background-primary);
+    --side-border-color: var(--color-background);
+
+    --side-logo-image-width: 5rem;
+
+    --side-navigation-icon-size: 2.1rem;
+    --side-navigation-icon-color: var(--color-text-secondary);
+    --side-navigation-icon-background-color: transparent;
+    --side-navigation-icon-color-hover: var(--color-panel-highlight-primary);
+    --side-navigation-icon-background-color-hover: var(--color-background-secondary);
+    --side-navigation-icon-tooltip-color: var(--color-text-primary);
+    --side-navigation-icon-tooltip-background-color: var(--color-background-primary);
+    --side-navigation-icon-tooltip-shadow-color: var(--color-text-secondary);
+
+    --side-menu-icon-size: 2.1rem;
+    --side-menu-icon-color: var(--color-text-secondary);
+    --side-menu-icon-background-color: transparent;
+    --side-menu-icon-color-hover: var(--color-panel-highlight-primary);
+    --side-menu-icon-background-color-hover: var(--color-background-secondary);
+    --side-menu-icon-tooltip-color: var(--color-text-primary);
+    --side-menu-icon-tooltip-background-color: var(--color-background-primary);
+    --side-menu-icon-tooltip-shadow-color: var(--color-text-secondary);
+
+    // Header panel
+    --header-background-color: transparent;
+
+    // Main panel
+    --main-background-color: transparent;
+
+    // Footer panel
+    --footer-background-color: transparent;
+
+    // Components
+    --page-background-color: var(--color-background-primary);
+    --page-shadow-color: var(--color-background-secondary);
+}

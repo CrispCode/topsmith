@@ -1,0 +1,24 @@
+{
+    "name": "topsmith",
+    "version": "1.0.0",
+    "description": "A library use for creating administration pages for your website",
+    "engines": {
+      "node": ">=14.0.0",
+      "npm": ">=6.0.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "bugs": {
+      "url": ""
+    },
+    "dependencies": {
+      "@crispcode/modux": "^5.1.0"
+    },
+    "scripts": {
+      "start": "cd test && modux start",
+      "build": "cd test && modux build"
+    }
+  }
+  

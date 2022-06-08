@@ -1,0 +1,17 @@
+.topsmith-frame {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    flex-direction: row;
+
+    .topsmith-content {
+        flex-grow: 1;
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
