@@ -1,5 +1,5 @@
-# topsmith
-- A project based on the [MODUX](https://www.npmjs.com/package/@crispcode/modux) framework
+# Topsmith
+- A framework used for creating administration pages for your website
 
 ## Installation
 ```

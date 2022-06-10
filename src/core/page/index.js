@@ -2,20 +2,15 @@
 
 import { Component } from '@crispcode/modux'
 
-import template from './template.html'
-import './styles.scss'
-
-export class ComponentPage extends Component {
-  get template () {
-    return template
+export class Page extends Component {
+  static get url () {
+    return /^\/$/i
   }
 
-  static get url () {
-    /**
-     * Explaining :  ^   (.*:\/)?   \/   ([^\/\?]+)   (\/[^\?]*)?   (\?[^#]*)?   (#.*)?   $
-     *                   protocol/   /    hostname       path       parameters    hash
-     */
-
-    return /^(.*:\/)?\/([^\\/\\?]+)\/?(\?[^#]*)?(#.*)?$/i
+  static get settings () {
+    return {
+      css: '',
+      size: 'x3'
+    }
   }
 }

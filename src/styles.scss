@@ -1,12 +1,5 @@
 @import 'variables.scss';
 
-html {
-    background-color: var(--general-background-color);
-    color: var(--general-font-color);
-    font-family: var(--general-font-family);
-    font-size: var(--general-font-size);
-}
-
 html, body {
     display: block;
     position: relative;

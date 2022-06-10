@@ -6,6 +6,17 @@
     position: relative;
     flex-direction: row;
 
+    background-color: var(--general-background-color);
+    color: var(--general-font-color);
+    font-family: var(--general-font-family);
+    font-size: var(--general-font-size);
+
+    // @include bp-m {
+    //     overflow: hidden;
+    //     height: 100vh;
+    //     min-height: 100vh;
+    // }
+
     .topsmith-content {
         flex-grow: 1;
         display: flex;

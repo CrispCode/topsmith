@@ -12,9 +12,10 @@ import {
 import './styles.scss'
 
 import { Frame } from './core/frame'
-import { ComponentPage } from './core/page'
+import { Page } from './core/page'
+import { Section } from './core/section'
 
-import { config } from './config.js'
+import { defaults } from './config.js'
 
 class Topsmith {
   constructor () {
@@ -24,14 +25,15 @@ class Topsmith {
     this.app
       .addDependency( 'frame', Frame )
 
-    this.app.store.set( 'topsmith', config )
+    this.app.store.set( 'topsmith', defaults )
 
     this.element = document.querySelector( 'body' )
   }
 
-  get component () {
+  get classes () {
     return {
-      page: ComponentPage
+      Page: Page,
+      Section: Section
     }
   }
 

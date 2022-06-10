@@ -15,16 +15,16 @@ export class Frame extends Component {
     return template
   }
 
-  addComponent ( name, code ) {
+  add ( name, code ) {
     this.module.addDependency( name, code )
     this.element.querySelector( '.topsmith-' + name ).innerHTML = ''
     this.element.querySelector( '.topsmith-' + name ).setAttribute( 'data-modux-component', name )
   }
 
-  execute () {
-    this.addComponent( 'side', Side )
-    this.addComponent( 'header', Header )
-    this.addComponent( 'main', Main )
-    this.addComponent( 'footer', Footer )
+  init () {
+    this.add( 'side', Side )
+    this.add( 'header', Header )
+    this.add( 'main', Main )
+    this.add( 'footer', Footer )
   }
 }

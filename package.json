@@ -1,21 +1,24 @@
 {
     "name": "topsmith",
     "version": "1.0.0",
-    "description": "A library use for creating administration pages for your website",
+    "description": "A framework used for creating administration pages for your website",
+    "author": "Crisp Code ( contact@crispcode.ro )",
+    "license": "SEE LICENSE IN LICENSE",
     "engines": {
-      "node": ">=14.0.0",
-      "npm": ">=6.0.0"
+      "node": ">=16.0.0",
+      "npm": ">=8.0.0"
     },
     "repository": {
       "type": "git",
-      "url": ""
+      "url": "https://github.com/CrispCode/topsmith.git"
     },
     "bugs": {
-      "url": ""
+      "url": "https://github.com/CrispCode/topsmith/issues"
     },
     "dependencies": {
-      "@crispcode/modux": "^5.1.0"
+      "@crispcode/modux": "^5.1.1"
     },
+    "main": "./src/index.js",
     "scripts": {
       "start": "cd test && modux start",
       "build": "cd test && modux build"

@@ -1,8 +1,8 @@
 'use strict'
 
-import { ComponentPage } from './core/page'
-
-export let config = {
+export let defaults = {
+  title: 'TOPSMITH',
+  description: 'An easy way to build your administration pages',
   structure: {
     side: {
       logo: {
@@ -11,14 +11,34 @@ export let config = {
       },
       navigation: {
         'home': {
+          order: 1, // Order in the list
+          icon: 'home', // Google icon to use
+          tooltip: 'home', // The tooltip
+          url: '/', // Url to redirect to OR null
+          external: false, // If the url points to external url
+          target: null, // Anchor target
+          match: /^\/$/i, // Set active if url matches pattern OR null
+          section: null // Opens the section name in the section part of side
+        },
+        'home3': {
           order: 1,
           icon: 'home',
           tooltip: 'home',
-          url: '/',
+          url: '/a/a',
           external: false,
           target: null,
-          match: /^(.*:\/)?\/([^\\/\\?]+)\/?(\?[^#]*)?(#.*)?$/i,
-          active: false
+          match: /^\/$/i,
+          section: null
+        },
+        'projects': {
+          order: 1,
+          icon: 'grid_view',
+          tooltip: 'projects',
+          url: null,
+          external: false,
+          target: null,
+          match: null,
+          section: 'projects'
         }
       },
       menu: {
@@ -29,25 +49,24 @@ export let config = {
           url: '#notifications',
           external: false,
           target: null,
-          match: /^(.*:\/)?\/([^\\/\\?]+)(\/[^?]*)?(\?[^#]*)?#notifications$/i,
-          active: false
+          match: null,
+          section: null
         },
         'account_circle': {
           order: 2,
           icon: 'account_circle',
           tooltip: 'account circle',
-          url: '/account',
+          url: '#account',
           external: false,
           target: null,
           match: null,
-          active: false
+          section: null
         }
-      }
+      },
+      sections: {}
     },
     main: {
-      pages: [
-        ComponentPage
-      ]
+      pages: {}
     }
   }
 }

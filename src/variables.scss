@@ -1,8 +1,14 @@
-// Base font
+// Base fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 // Icons
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0');
+
+// Breakpoints
+$breakpoint-xl: 1200px;
+$breakpoint-l: 1024px;
+$breakpoint-m: 768px;    
 
 :root {
     // Colors
@@ -24,9 +30,9 @@
     --side-background-color: var(--color-background-primary);
     --side-border-color: var(--color-background);
 
-    --side-logo-image-width: 5rem;
+    --side-logo-image-width: calc(var(--general-font-size) * 5);
 
-    --side-navigation-icon-size: 2.1rem;
+    --side-navigation-icon-size: calc(var(--general-font-size) * 2.1);
     --side-navigation-icon-color: var(--color-text-secondary);
     --side-navigation-icon-background-color: transparent;
     --side-navigation-icon-color-hover: var(--color-panel-highlight-primary);
@@ -35,7 +41,7 @@
     --side-navigation-icon-tooltip-background-color: var(--color-background-primary);
     --side-navigation-icon-tooltip-shadow-color: var(--color-text-secondary);
 
-    --side-menu-icon-size: 2.1rem;
+    --side-menu-icon-size: calc(var(--general-font-size) * 2.1);
     --side-menu-icon-color: var(--color-text-secondary);
     --side-menu-icon-background-color: transparent;
     --side-menu-icon-color-hover: var(--color-panel-highlight-primary);
@@ -46,6 +52,13 @@
 
     // Header panel
     --header-background-color: transparent;
+    --header-logo-image-background-color: var(--color-background-primary);
+    --header-logo-image-color: var(--color-text-secondary);
+    --header-logo-image-width: calc(var(--general-font-size) * 2.5);
+    --header-text-title-font-size: calc(var(--general-font-size) * 2);
+    --header-text-title-color: var(--color-panel-highlight-primary);
+    --header-text-description-font-size: calc(var(--general-font-size) * 1);
+    --header-text-description-color: var(--color-text-primary);
 
     // Main panel
     --main-background-color: transparent;
@@ -55,5 +68,6 @@
 
     // Components
     --page-background-color: var(--color-background-primary);
+    --page-border-color: var(--color-background);
     --page-shadow-color: var(--color-background-secondary);
 }

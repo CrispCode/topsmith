@@ -1,6 +1,6 @@
 'use strict'
 
-import { Component, html, loop, isObject } from '@crispcode/modux'
+import { Component, html, loop, isObject, Url } from '@crispcode/modux'
 
 import template from './template.html'
 import './styles.scss'
@@ -10,8 +10,20 @@ export class Side extends Component {
     return template
   }
 
-  createItem ( key, data ) {
+  createItem ( category, key, data ) {
     const element = html( '<a class="topsmith-side-content-icon" data-icon-name="' + key + '" data-tooltip=""><span class="material-symbols-rounded"></span></a>' )
+    element.__watcher = this.store.on( 'topsmith.#.structure.side.' + category + '.' + key, ( data ) => {
+      // We only change class if it's needed
+      if ( data.active && !element.classList.contains( 'active' ) ) {
+        element.classList.add( 'active' )
+      }
+      if ( !data.active && element.classList.contains( 'active' ) ) {
+        element.classList.add( 'remove' )
+      }
+    } )
+    element.addEventListener( 'click', () => {
+      this.store.set( 'topsmith.#.structure.side.section', data.section )
+    } )
     this.updateItem( data, element )
     return element
   }
@@ -20,7 +32,9 @@ export class Side extends Component {
     loop( data, ( value, name ) => {
       switch ( name ) {
         case 'order':
-          element.style.order = value
+          if ( value ) {
+            element.style.order = value
+          }
           break
         case 'icon':
           if ( value !== element.firstElementChild.innerHTML ) {
@@ -33,7 +47,7 @@ export class Side extends Component {
           }
           break
         case 'url':
-          if ( value !== element.href ) {
+          if ( value && value !== element.href ) {
             element.href = value
           }
           break
@@ -47,23 +61,22 @@ export class Side extends Component {
             element.setAttribute( 'target', value )
           }
           break
-        case 'active':
+        case 'section':
           if ( value ) {
-            element.classList.add( 'active' )
-          } else {
-            element.classList.remove( 'active' )
+            element.setAttribute( 'data-section', value )
           }
           break
       }
     } )
   }
 
-  updateItems ( section, items ) {
-    let container = this.element.querySelector( '.topsmith-side-content-' + section )
+  updateItems ( category, items ) {
+    let container = this.element.querySelector( '.topsmith-side-content-' + category )
 
     // Remove unused elements
-    loop( container.children, ( element ) => {
+    loop( Object.assign( {}, container.children ), ( element ) => {
       if ( !items[ element.getAttribute( 'data-icon-name' ) ] ) {
+        element.__watcher()
         element.remove()
       }
     } )
@@ -75,35 +88,64 @@ export class Side extends Component {
         this.updateItem( value, element )
       } else {
         // Create element
-        container.appendChild( this.createItem( key, value ) )
+        container.appendChild( this.createItem( category, key, value ) )
       }
     } )
   }
 
   onStateChange ( url ) {
+    url = new Url( url )
     loop( [ 'navigation', 'menu' ], ( category ) => {
       loop( this.store.get( 'topsmith.structure.side.' + category ), ( data, key ) => {
         if ( data.match ) {
-          let parameters = url.match( data.match )
+          let parameters = url.path.match( data.match )
+          let isActive = false
           if ( parameters ) {
-            this.store.set( 'topsmith.structure.side.' + category + '.' + key + '.active', true )
-          } else {
-            this.store.set( 'topsmith.structure.side.' + category + '.' + key + '.active', false )
+            isActive = true
+            this.store.set( 'topsmith.#.structure.side.section', this.store.get( 'topsmith.structure.side.' + category + '.' + key + '.section' ) )
           }
+          this.store.set( 'topsmith.#.structure.side.' + category + '.' + key + '.active', isActive )
         }
       } )
     } )
   }
 
   execute () {
-    this.store.on( 'topsmith.structure.side', ( config ) => {
-      if ( isObject( config.logo ) ) {
-        let logo = this.element.querySelector( '.topsmith-side-content-logo' )
-        logo.href = config.logo.url || '/'
-        logo.querySelector( '.topsmith-side-content-logo-image' ).src = config.logo.image
+    this.store.on( 'topsmith.structure.side.logo', ( logo ) => {
+      if ( isObject( logo ) ) {
+        let element = this.element.querySelector( '.topsmith-side-content-logo' )
+        element.href = logo.url || '/'
+        element.querySelector( '.topsmith-side-content-logo-image' ).src = logo.image
       }
-      this.updateItems( 'navigation', config.navigation || {} )
-      this.updateItems( 'menu', config.menu || {} )
+    }, true )
+
+    this.store.on( 'topsmith.structure.side.navigation', ( navigation ) => {
+      this.updateItems( 'navigation', navigation || {} )
+    }, true )
+
+    this.store.on( 'topsmith.structure.side.menu', ( menu ) => {
+      this.updateItems( 'menu', menu || {} )
+    }, true )
+
+    this.store.on( 'topsmith.#.structure.side.section', ( name ) => {
+      let container = this.element.querySelector( '.topsmith-side-content-sections' )
+      let sections = this.store.get( 'topsmith.structure.side.sections' )
+
+      // Only make changes if they are needed
+      let previous = container.querySelector( '[data-modux-componet]' )
+      if ( !previous || ( previous && previous.getAttribute( '[data-section-name]' ) !== name ) ) {
+        // Remove previous section
+        if ( container.firstElementChild ) {
+          container.firstElementChild.remove()
+        }
+        if ( name && sections[ name ] ) {
+          // Update section panel
+          const element = html( '<section data-modux-component="section-' + name + '" data-section-name="' + name + '"></section>' )
+          this.module.addDependency( 'section-' + name, sections[ name ] )
+          this.module.createComponent( element )
+          container.appendChild( element )
+        }
+      }
     }, true )
   }
 }

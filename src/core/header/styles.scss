@@ -1,7 +1,51 @@
 .topsmith-header-content {
-    display: block;
+    display: flex;
+    align-items: stretch;
     box-sizing: border-box;
     width: 100%;
-    padding: 1rem;
+    max-width: 1320px;
+    margin: auto;
     background-color: var(--header-background-color);
+    padding: 10px 5px 5px;
+
+    .topsmith-header-content-icon {
+        display: block;
+        background-color: var(--header-logo-image-background-color);
+        color: var(--header-logo-image-color);
+        margin: 10px;
+        padding: 0.5em 0.6em 0.4em;
+        border-radius: 6px;
+        cursor: pointer;
+
+        & > * {
+            font-size: var(--header-logo-image-width);
+        }
+
+        @include bp-l {
+            margin: 5px;
+        }
+    }
+
+    .topsmith-header-content-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin: 10px;
+
+        @include bp-l {
+            margin: 5px;
+        }
+
+        .topsmith-header-content-text-title {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 5px;
+            font-size: var(--header-text-title-font-size);
+            color: var(--header-text-title-color);    
+        }
+        .topsmith-header-content-text-description {
+            font-size: var(--header-text-description-font-size);
+            color: var(--header-text-description-color);    
+        }
+    }
 }
