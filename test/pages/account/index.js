@@ -11,7 +11,7 @@ export class PageAccount extends topsmith.classes.Page {
   }
 
   static get url () {
-    return /^\/$/i
+    return /^\/account$/i
   }
 
   static get settings () {

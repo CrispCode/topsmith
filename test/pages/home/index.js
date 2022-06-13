@@ -13,4 +13,10 @@ export class PageHome extends topsmith.classes.Page {
   static get url () {
     return /^\/$/i
   }
+
+  static get settings () {
+    return {
+      size: 'x2'
+    }
+  }
 }

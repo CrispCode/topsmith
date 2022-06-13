@@ -74,12 +74,10 @@ $breakpoint-m: 768px;
 
     // Main panel
     --main-background-color: transparent;
+    --main-page-background-color: var(--color-background-primary);
+    --main-page-border-color: var(--color-background);
+    --main-page-shadow-color: var(--color-background-secondary);
 
     // Footer panel
     --footer-background-color: transparent;
-
-    // Components
-    --page-background-color: var(--color-background-primary);
-    --page-border-color: var(--color-background);
-    --page-shadow-color: var(--color-background-secondary);
 }
