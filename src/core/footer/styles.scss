@@ -2,6 +2,10 @@
     display: block;
     box-sizing: border-box;
     width: 100%;
-    padding: 0 1em;
     background-color: var(--footer-background-color);
+    padding: 5px 20px;
+
+    @include bp-l {
+        padding: 5px 10px;
+    }
 }

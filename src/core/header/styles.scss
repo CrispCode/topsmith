@@ -4,23 +4,29 @@
     box-sizing: border-box;
     width: 100%;
     max-width: 1320px;
+    height: var(--header-height);
     margin: auto;
-    // background-color: var(--header-background-color);
     padding: 20px 20px 10px;
+    background-color: var(--header-background-color);
 
     @include bp-l {
-        padding: 10px 10px;
+        padding: 15px 10px 10px;
     }
 
-    .topsmith-header-content-icon {
+    @include bp-m {
+        position: fixed;
+        padding: 15px 10px 15px;
+    }
+
+    .topsmith-header-content-menu {
         display: none;
         margin: 0 10px 0 0;
         cursor: pointer;
 
         & > * {
-            background-color: var(--header-button-image-background-color);
-            color: var(--header-button-image-color);
-            font-size: var(--header-button-image-width);
+            background-color: var(--header-menu-background-color);
+            color: var(--header-menu-color);
+            font-size: var(--header-menu-width);
             padding: 0.3em;
             border-radius: 6px;
         }
@@ -75,7 +81,7 @@
         }
     }
 
-    .topsmith-header-content-menu {
+    .topsmith-header-content-buttons {
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -85,35 +91,39 @@
             display: flex;
             align-items: center;
             position: relative;
-            color: var(--header-menu-icon-color);
-            background-color: var(--header-menu-icon-background-color);
+            color: var(--header-buttons-button-icon-color);
+            background-color: var(--header-buttons-button-background-color);
             padding: 0.5em 0.6em 0.4em;
             border-radius: 6px;
             cursor: pointer;
             text-decoration: none;
-            margin-right: 10px;
+            margin-left: 10px;
     
             .material-symbols-rounded {
-                font-size: var(--header-menu-icon-size);
-                width: var(--header-menu-icon-size);    
+                font-size: var(--header-buttons-button-size);
+                width: var(--header-buttons-button-size);    
             }
 
             .topsmith-header-content-button-tooltip {
                 box-sizing: border-box;
                 padding: 5px 5px 5px 10px;
-                font-size: var(--header-menu-icon-tooltip-size);
+                font-size: var(--header-buttons-button-tooltip-size);
                 text-transform: uppercase;
+
+                @include bp-m {
+                    display: none;
+                }
             }
     
             &:hover {
-                color: var(--header-menu-icon-color-hover);
-                background-color: var(--header-menu-icon-background-color-hover);
+                color: var(--header-buttons-button-color-hover);
+                background-color: var(--header-buttons-button-background-color-hover);
 
             }
     
             &.active {
-                color: var(--header-menu-icon-color-hover);
-                background-color: var(--header-menu-icon-background-color-hover);
+                color: var(--header-buttons-button-color-hover);
+                background-color: var(--header-buttons-button-background-color-hover);
             }
         }
     }

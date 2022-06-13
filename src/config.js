@@ -80,5 +80,6 @@ export let defaults = {
       }
     }
   },
-  pages: {}
+  pages: {},
+  footer: '&copy; 2022 CrispCode S.R.L. All rights reserved.'
 }

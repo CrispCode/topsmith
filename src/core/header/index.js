@@ -67,7 +67,7 @@ export class Header extends Component {
   }
 
   updateItems ( items ) {
-    let container = this.element.querySelector( '.topsmith-header-content-menu' )
+    let container = this.element.querySelector( '.topsmith-header-content-buttons' )
 
     // Remove unused elements
     loop( Object.assign( {}, container.children ), ( element ) => {
@@ -104,6 +104,10 @@ export class Header extends Component {
   }
 
   execute () {
+    this.element.querySelector( '.topsmith-header-content-menu' ).addEventListener( 'click', () => {
+      this.store.set( 'topsmith.#.side.open', true )
+    } )
+
     this.store.on( 'topsmith.header.logo', ( logo ) => {
       if ( isObject( logo ) ) {
         let element = this.element.querySelector( '.topsmith-header-content-logo' )
@@ -123,9 +127,5 @@ export class Header extends Component {
     this.store.on( 'topsmith.header.buttons', ( buttons ) => {
       this.updateItems( buttons )
     }, true )
-
-    this.element.querySelector( '.topsmith-header-content-icon' ).addEventListener( 'click', () => {
-      this.store.set( 'topsmith.#.side.open', true )
-    } )
   }
 }

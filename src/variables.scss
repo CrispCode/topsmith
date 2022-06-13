@@ -51,11 +51,12 @@ $breakpoint-m: 768px;
     --side-menu-icon-tooltip-shadow-color: var(--color-text-secondary);
 
     // Header panel
-    --header-background-color: var(--color-background-primary);
+    --header-background-color: var(--color-background);
+    --header-height: calc(var(--general-font-size) * 5.3);
 
-    --header-button-image-background-color: var(--color-background-primary);
-    --header-button-image-color: var(--color-text-secondary);
-    --header-button-image-width: calc(var(--general-font-size) * 2.5);
+    --header-menu-background-color: var(--color-background-primary);
+    --header-menu-color: var(--color-text-secondary);
+    --header-menu-width: calc(var(--general-font-size) * 2.5);
 
     --header-logo-image-height: calc(var(--general-font-size) * 3.5);
 
@@ -64,12 +65,12 @@ $breakpoint-m: 768px;
     --header-text-description-font-size: calc(var(--general-font-size) * 0.8);
     --header-text-description-color: var(--color-text-primary);
 
-    --header-menu-icon-size: calc(var(--general-font-size) * 2);
-    --header-menu-icon-tooltip-size: calc(var(--general-font-size) * 0.9);
-    --header-menu-icon-color: var(--color-text-primary);
-    --header-menu-icon-background-color: var(--color-background-primary);
-    --header-menu-icon-color-hover: var( --color-background-primary);
-    --header-menu-icon-background-color-hover: var(--color-panel-highlight-primary);
+    --header-buttons-button-size: calc(var(--general-font-size) * 2);
+    --header-buttons-button-tooltip-size: calc(var(--general-font-size) * 0.9);
+    --header-buttons-button-color: var(--color-text-primary);
+    --header-buttons-button-background-color: var(--color-background-primary);
+    --header-buttons-button-color-hover: var( --color-background-primary);
+    --header-buttons-button-background-color-hover: var(--color-panel-highlight-primary);
 
     // Main panel
     --main-background-color: transparent;

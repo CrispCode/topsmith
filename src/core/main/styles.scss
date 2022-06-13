@@ -11,6 +11,10 @@
     @include bp-l {
         padding: 0 2.5px;
     }
+
+    @include bp-m {
+        padding-top: calc(var(--header-height) - 5px);
+    }
     
     & > [data-modux-component] {
         display: inline-block;
