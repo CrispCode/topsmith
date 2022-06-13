@@ -11,12 +11,6 @@
     font-family: var(--general-font-family);
     font-size: var(--general-font-size);
 
-    // @include bp-m {
-    //     overflow: hidden;
-    //     height: 100vh;
-    //     min-height: 100vh;
-    // }
-
     .topsmith-content {
         flex-grow: 1;
         display: flex;
@@ -24,5 +18,13 @@
         width: 100%;
         flex-direction: column;
         align-items: stretch;
+
+        @include bp-m {
+            &.scroll-lock {
+                overflow: hidden;
+                height: 100vh;
+                min-height: 100vh;
+            }
+        }    
     }
 }

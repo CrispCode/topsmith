@@ -13,7 +13,7 @@ export class Main extends Component {
   onStateChange ( url ) {
     url = new Url( url )
 
-    let pages = this.store.get( 'topsmith.structure.main.pages' )
+    let pages = this.store.get( 'topsmith.pages' )
     let instances = {}
 
     // Get all pages that match url

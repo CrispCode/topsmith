@@ -4,21 +4,34 @@
     width: 100%;
     height: 100%;
 
+    @include bp-m {
+        display: none;
+
+        &.open {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+    }
+
     .topsmith-side-content-overlay {
-        // @include bp-m {
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     width: 100%;
-        //     height: 100%;
-        //     background-color: rgba(0, 0, 0, 0.7);
-        // }    
+        @include bp-m {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }    
     }
 
     .topsmith-side-content-icons {
         display: flex;
         position: relative;
         box-sizing: border-box;
+        width: calc(var(--side-logo-image-width) + 1.2em);
         height: 100%;
         flex-direction: column;
         color: var(--side-font-color);
@@ -64,6 +77,7 @@
             padding: 0.5em 0.6em 0.4em;
             border-radius: 6px;
             cursor: pointer;
+            text-decoration: none;
     
             & > * {
                 font-size: var(--side-navigation-icon-size);
@@ -102,13 +116,20 @@
         display: block;
         position: relative;
         box-sizing: border-box;
-        width: 100%;
         height: 100%;
         background-color: var(--side-background-color);
         border-right: 2px solid var(--side-border-color);
+        overflow: auto;
+
+        @include bp-m {
+            max-width: calc(85% - calc(var(--side-logo-image-width) + 1.2em));
+        }
 
         & > * {
-            padding: 10px;
+            display: block;
+            width: 100%;
+            padding: 1em;
+            box-sizing: border-box;
         }
     }
 }

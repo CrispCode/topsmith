@@ -1,51 +1,120 @@
 .topsmith-header-content {
     display: flex;
-    align-items: stretch;
+    align-items: center;
     box-sizing: border-box;
     width: 100%;
     max-width: 1320px;
     margin: auto;
-    background-color: var(--header-background-color);
-    padding: 10px 5px 5px;
+    // background-color: var(--header-background-color);
+    padding: 20px 20px 10px;
+
+    @include bp-l {
+        padding: 10px 10px;
+    }
 
     .topsmith-header-content-icon {
-        display: block;
-        background-color: var(--header-logo-image-background-color);
-        color: var(--header-logo-image-color);
-        margin: 10px;
-        padding: 0.5em 0.6em 0.4em;
-        border-radius: 6px;
+        display: none;
+        margin: 0 10px 0 0;
         cursor: pointer;
 
         & > * {
-            font-size: var(--header-logo-image-width);
+            background-color: var(--header-button-image-background-color);
+            color: var(--header-button-image-color);
+            font-size: var(--header-button-image-width);
+            padding: 0.3em;
+            border-radius: 6px;
         }
 
-        @include bp-l {
-            margin: 5px;
+        @include bp-m {
+            display: block;
+        }
+    }
+
+    .topsmith-header-content-logo {
+        display: none;
+        height: var(--header-logo-image-height);
+        box-sizing: border-box;
+
+        .topsmith-header-content-logo-image {
+            display: block;
+            height: 100%;
+        }
+
+        @include bp-m {
+            display: block;
         }
     }
 
     .topsmith-header-content-text {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        margin: 10px;
+        justify-content: center;
 
-        @include bp-l {
-            margin: 5px;
+        @include bp-m {
+            display: none;
         }
 
         .topsmith-header-content-text-title {
             font-family: 'Montserrat', sans-serif;
-            letter-spacing: 5px;
             font-size: var(--header-text-title-font-size);
-            color: var(--header-text-title-color);    
+            letter-spacing: 5px;
+            color: var(--header-text-title-color);
+            font-weight: 500;
+            white-space: nowrap;
         }
         .topsmith-header-content-text-description {
+            font-weight: 200;
             font-size: var(--header-text-description-font-size);
-            color: var(--header-text-description-color);    
+            color: var(--header-text-description-color);
+            text-transform: uppercase;
+
+            border-top: 2px solid var(--header-text-title-color);
+            padding-top: 5px;
+
+            white-space: nowrap;
+        }
+    }
+
+    .topsmith-header-content-menu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+            
+        .topsmith-header-content-button {
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: var(--header-menu-icon-color);
+            background-color: var(--header-menu-icon-background-color);
+            padding: 0.5em 0.6em 0.4em;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 10px;
+    
+            .material-symbols-rounded {
+                font-size: var(--header-menu-icon-size);
+                width: var(--header-menu-icon-size);    
+            }
+
+            .topsmith-header-content-button-tooltip {
+                box-sizing: border-box;
+                padding: 5px 5px 5px 10px;
+                font-size: var(--header-menu-icon-tooltip-size);
+                text-transform: uppercase;
+            }
+    
+            &:hover {
+                color: var(--header-menu-icon-color-hover);
+                background-color: var(--header-menu-icon-background-color-hover);
+
+            }
+    
+            &.active {
+                color: var(--header-menu-icon-color-hover);
+                background-color: var(--header-menu-icon-background-color-hover);
+            }
         }
     }
 }

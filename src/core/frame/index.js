@@ -27,4 +27,14 @@ export class Frame extends Component {
     this.add( 'main', Main )
     this.add( 'footer', Footer )
   }
+
+  execute () {
+    this.store.on( 'topsmith.#.side.open', ( open ) => {
+      if ( open ) {
+        this.element.querySelector( '.topsmith-content' ).classList.add( 'scroll-lock' )
+      } else {
+        this.element.querySelector( '.topsmith-content' ).classList.remove( 'scroll-lock' )
+      }
+    }, true )
+  }
 }

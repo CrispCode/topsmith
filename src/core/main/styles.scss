@@ -5,13 +5,13 @@
     max-width: 1320px;
     height: 100%;
     background-color: var(--main-background-color);
-    margin: auto;
+    margin: 0 auto;
     padding: 0 5px;
 
     @include bp-l {
         padding: 0 2.5px;
     }
-
+    
     & > [data-modux-component] {
         display: inline-block;
         box-sizing: border-box;
