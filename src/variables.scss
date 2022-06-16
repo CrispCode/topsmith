@@ -84,7 +84,7 @@ $breakpoint-m: 768px;
 
     --button-font-size: var(--general-font-size);
     --button-color: var(--color-text-primary);
-    --button-background-color: var(--color-background-secondary);
+    --button-background-color: var(--color-background);
     --button-color-active: var(--color-text-tertiary);
     --button-background-color-active: var(--color-background-secondary);
     --button-color-highlight: var(--color-text-quaternary);
@@ -103,4 +103,15 @@ $breakpoint-m: 768px;
     --checkbox-color: var(--color-text-primary);
     --checkbox-background-color: var(--color-background);
     --checkbox-border-color: var(--color-background);
+    --checkbox-outline-color: var(--color-background-tertiary);
+
+    --radio-color: var(--color-text-primary);
+    --radio-background-color: var(--color-background);
+    --radio-border-color: var(--color-background);
+    --radio-outline-color: var(--color-background-tertiary);
+
+    --select-font-size: var(--general-font-size);
+    --select-color: var(--color-text-primary);
+    --select-background-color: var(--color-background);
+    --select-outline-color: var(--color-background-tertiary);
 }

@@ -23,7 +23,7 @@ html, body {
         position: relative;
         box-sizing: border-box;
         width: 30%;
-        padding: 5px;
+        padding: 5px 0;
         font-size: var(--label-font-size);
         color: var(--label-color);    
     }
@@ -35,23 +35,6 @@ html, body {
         width: calc(70% - 15px);
         margin-left: 15px;
         margin-right: 5px;
-    }
-
-    .topsmith-input {
-        display: block;
-        box-sizing: border-box;
-        font-size: var(--input-font-size);
-        color: var(--input-color);    
-        width: 100%;
-        padding: 13px;
-        border-radius: 5px;
-        border: 0;
-        background-color: var(--input-background-color);
-        outline: 0;
-
-        &:focus {
-            box-shadow: 0 0 2px 1px var(--input-outline-color);
-        }
     }
 
     &.required {
@@ -78,7 +61,7 @@ html, body {
                 margin: 5px;
             }
         }
-        .topsmith-input {
+        .topsmith-input, .topsmith-checkbox, .topsmith-radio {
             box-shadow: 0 0 2px 1px var(--color-error);
         }
     }
@@ -94,6 +77,23 @@ html, body {
             width: 100%;
             margin-left: 0;
         }
+    }
+}
+
+.topsmith-input {
+    display: block;
+    box-sizing: border-box;
+    font-size: var(--input-font-size);
+    color: var(--input-color);    
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    border: 0;
+    background-color: var(--input-background-color);
+    outline: 0;
+
+    &:focus {
+        box-shadow: 0 0 2px 1px var(--input-outline-color);
     }
 }
 
@@ -129,6 +129,7 @@ html, body {
 }
 
 .topsmith-checkbox {
+    position: relative;
     appearance: none;
     background-color: var(--checkbox-background-color);
     margin: 0;
@@ -137,6 +138,7 @@ html, body {
     border: 1px solid var(--checkbox-border-color);
     border-radius: 5px;
     transform: translateY(0.5em);
+    outline: 0;
 
     &::before {
         content: ' ';
@@ -150,27 +152,28 @@ html, body {
         background-color: var(--checkbox-color);
         transform-origin: bottom left;
         clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-        outline: 0;
-      }
+    }
       
-      &:checked::before {
+    &:checked::before {
         transform: scale( 1 );
-      }
+    }
 
-      &:focus {
-        box-shadow: 0 0 2px 1px var(--input-outline-color);
-      }
+    &:focus {
+        box-shadow: 0 0 2px 1px var(--checkbox-outline-color);
+    }
 }
 
 .topsmith-radio {
+    position: relative;
     appearance: none;
-    background-color: var(--checkbox-background-color);
+    background-color: var(--radio-background-color);
     margin: 0;
     width: 2em;
     height: 2em;
-    border: 1px solid var(--checkbox-border-color);
+    border: 1px solid var(--radio-border-color);
     border-radius: 5px;
     transform: translateY(0.5em);
+    outline: 0;
 
     &::before {
         content: ' ';
@@ -182,19 +185,51 @@ html, body {
         transform: scale( 0 );
         transition: 120ms transform ease-in-out;
         border-radius: 5px;
-        background-color: var(--checkbox-color);
+        background-color: var(--radio-color);
         transform-origin: bottom left;
         clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-        outline: 0;
-      }
+    }
       
-      &:checked::before {
+    &:checked::before {
         transform: scale( 1 );
-      }
+    }
 
-      &:focus {
-        box-shadow: 0 0 2px 1px var(--input-outline-color);
-      }
+    &:focus {
+        box-shadow: 0 0 2px 1px var(--radio-outline-color);
+    }
+}
+
+.topsmith-select {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    font-size: var(--select-font-size);
+    color: var(--select-color);    
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    border: 0;
+    background-color: var(--select-background-color);
+    outline: 0;
+
+    & > option {
+        box-sizing: border-box;
+        padding: 13px;
+        margin: 10px;
+        border-radius: 5px;
+
+        &:checked, &:hover {
+            background-color: var(--select-outline-color);
+        }
+    }
+
+    &[multiple] {
+        padding: 0;
+    }
+
+    &:focus {
+        box-shadow: 0 0 2px 1px var(--select-outline-color);
+    }
 }
 
 .topsmith-fieldset {

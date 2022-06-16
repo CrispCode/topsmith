@@ -2,11 +2,12 @@
     <!-- <div data-modux-component="topsmith-component-text" data-error="There was an error" data-label="Email" data-type="email" data-name="email" data-placeholder="Enter your email address..."></div>
     <div data-modux-component="topsmith-component-text" data-required="true" data-label="Looong ass labellll and shit like that Looong ass labellll and shit like that" data-name="long" data-placeholder="Enter your email address..."></div>
     <div data-modux-component="topsmith-component-text" data-required="true" data-label="Long ass label" data-name="t3" data-placeholder="Enter your email address..."></div> -->
+    <div class="topsmith-label">The components should be a function called on the element. Similar to how JQuery works</div>
 
     <label class="topsmith-field">
         <span class="topsmith-label">Test</span>
         <span  class="topsmith-value">
-            <input class="topsmith-input" type="email" placeholder="Enter your email address..."/>
+            <input list="l1" class="topsmith-input" type="email" placeholder="Enter your email address..."/>
         </span>
     </label>
 
@@ -17,9 +18,9 @@
         </span>
     </label>
 
-    <label class="topsmith-field">
+    <label class="topsmith-field error">
         <span class="topsmith-label">Test</span>
-        <span  class="topsmith-value">
+        <span  class="topsmith-value" data-error="More drama..">
             <input class="topsmith-checkbox" type="checkbox"/>
         </span>
     </label>
@@ -29,7 +30,7 @@
         <span  class="topsmith-value">
             <label>Option 1 <input class="topsmith-radio" type="radio" name="radio"/></label><br/>
             <label>Option 2 <input class="topsmith-radio" type="radio" name="radio"/></label><br/>
-            <label>Option 3 <input class="topsmith-radio" type="radio" name="radio"/></label><br/>
+            <label>Option 3 <input class="topsmith-radio" type="radio" name="radio"/></label>
         </span>
     </div>
 
@@ -62,4 +63,23 @@
         </label>
 
     </fieldset>
+
+    <br/>
+
+    <select name="select" class="topsmith-select">
+        <option value="s1">Select 1</option>
+        <option value="s2">Select 2</option>
+        <option value="s3">Select 3</option>
+        <option value="s4">Select 4</option>
+    </select>
+
+    <br/>
+
+    <select name="select" class="topsmith-select" multiple>
+        <option value="s1">Select 1</option>
+        <option value="s2">Select 2</option>
+        <option value="s3">Select 3</option>
+        <option value="s4">Select 4</option>
+    </select>
+
 </div>
