@@ -2,7 +2,7 @@
 
 'use strict'
 
-import { topsmith } from './../src/index.js'
+import { topsmith, ComponentText } from './../src/index.js'
 
 import './app.scss'
 
@@ -15,6 +15,8 @@ import { SectionProjects } from './sections/projects'
 window.addEventListener( 'load', () => {
   topsmith.debug( true )
 
+  topsmith.addComponent( ComponentText )
+
   topsmith
     // Side
     .set( 'side.navigation.home', {
@@ -25,47 +27,38 @@ window.addEventListener( 'load', () => {
       external: false, // If the url points to external url
       target: null, // Anchor target
       match: /^\/$/i, // Set active if url matches pattern OR null
-      section: null // Opens the section name in the section part of side
+      section: null, // Opens the section name in the section part of side
+      counter: '' // Will show the icon counter with this value
     } )
     .set( 'side.navigation.projects', {
       order: 2,
       icon: 'grid_view',
       tooltip: 'projects',
-      url: null,
-      external: false,
-      target: null,
-      match: null,
       section: 'projects'
     } )
-    .set( 'side.menu.account', {
-      order: 1,
-      icon: 'account_circle',
-      tooltip: 'account circle',
-      url: '/account',
-      external: false,
-      target: null,
-      match: /^\/account$/i,
-      section: null
-    } )
-
-    // Header
-    .set( 'header.buttons.notifications', {
+    .set( 'side.menu.notifications', {
       order: 1,
       icon: 'notifications',
       tooltip: 'notifications',
       url: '/notifications',
-      external: false,
-      target: null,
-      match: /^\/notifications$/i
+      match: /^\/notifications$/i,
+      counter: '99'
     } )
-    .set( 'header.buttons.logs', {
+
+    // Header
+    .set( 'header.buttons.account', {
+      order: 1,
+      icon: 'account_circle',
+      tooltip: 'account',
+      url: '/account',
+      match: /^\/account$/i
+    } )
+    .set( 'header.buttons.logout', {
       order: 2,
-      icon: 'browse_activity',
-      tooltip: 'logs',
-      url: '/logs',
-      external: false,
-      target: null,
-      match: /^\/logs$/i
+      icon: 'logout',
+      tooltip: 'logout',
+      url: '/logout',
+      match: /^\/logout$/i
     } )
 
     // Pages

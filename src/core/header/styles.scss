@@ -115,10 +115,11 @@
                 }
             }
     
-            &:hover {
-                color: var(--header-buttons-button-color-hover);
-                background-color: var(--header-buttons-button-background-color-hover);
-
+            @include hasHover() {
+                &:hover {
+                    color: var(--header-buttons-button-color-hover);
+                    background-color: var(--header-buttons-button-background-color-hover);
+                }
             }
     
             &.active {

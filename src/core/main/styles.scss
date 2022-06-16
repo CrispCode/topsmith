@@ -19,6 +19,7 @@
     & > [data-modux-component] {
         display: inline-block;
         box-sizing: border-box;
+        vertical-align: top;
         padding: 10px;
 
         &.hide {
@@ -26,7 +27,8 @@
         }
 
         & > * {
-            padding: 10px;
+            box-sizing: border-box;
+            padding: 20px;
             border-radius: 6px;
             @include shadow( 0px 10px 35px 0px var(--main-page-shadow-color) );
             border: 2px solid var(--main-page-border-color);

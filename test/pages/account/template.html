@@ -1,1 +1,65 @@
-<div class="page-account">Account</div>
+<div class="page-account">
+    <!-- <div data-modux-component="topsmith-component-text" data-error="There was an error" data-label="Email" data-type="email" data-name="email" data-placeholder="Enter your email address..."></div>
+    <div data-modux-component="topsmith-component-text" data-required="true" data-label="Looong ass labellll and shit like that Looong ass labellll and shit like that" data-name="long" data-placeholder="Enter your email address..."></div>
+    <div data-modux-component="topsmith-component-text" data-required="true" data-label="Long ass label" data-name="t3" data-placeholder="Enter your email address..."></div> -->
+
+    <label class="topsmith-field">
+        <span class="topsmith-label">Test</span>
+        <span  class="topsmith-value">
+            <input class="topsmith-input" type="email" placeholder="Enter your email address..."/>
+        </span>
+    </label>
+
+    <label class="topsmith-field required error">
+        <span class="topsmith-label">Test</span>
+        <span  class="topsmith-value" data-error="There was an error">
+            <input class="topsmith-input" type="number" placeholder="Some number..."/>
+        </span>
+    </label>
+
+    <label class="topsmith-field">
+        <span class="topsmith-label">Test</span>
+        <span  class="topsmith-value">
+            <input class="topsmith-checkbox" type="checkbox"/>
+        </span>
+    </label>
+
+    <div class="topsmith-field">
+        <span class="topsmith-label">Test</span>
+        <span  class="topsmith-value">
+            <label>Option 1 <input class="topsmith-radio" type="radio" name="radio"/></label><br/>
+            <label>Option 2 <input class="topsmith-radio" type="radio" name="radio"/></label><br/>
+            <label>Option 3 <input class="topsmith-radio" type="radio" name="radio"/></label><br/>
+        </span>
+    </div>
+
+    <br/>
+
+    <input class="button" type="button" value="Input"/>
+    <a class="button">Anchor</a>
+    <button class="button highlight">Button</button>
+
+    <br/>
+
+    <fieldset class="topsmith-fieldset">
+        <legend>Radio buttons</legend>
+
+        <label>What happened?<input class="topsmith-checkbox" type="checkbox"/></label>
+
+        <br/>
+
+        <label>
+            Option 1
+            <input class="topsmith-radio" name="radio" type="radio"/>
+        </label>
+        <label>
+            Option 2
+            <input class="topsmith-radio" name="radio" type="radio"/>
+        </label>
+        <label>
+            Option 3
+            <input class="topsmith-radio" name="radio" type="radio"/>
+        </label>
+
+    </fieldset>
+</div>

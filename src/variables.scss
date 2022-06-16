@@ -15,9 +15,13 @@ $breakpoint-m: 768px;
     --color-background: #EFF2F5;
     --color-background-primary: #FFFFFF;
     --color-background-secondary: #F5F8FA;
-    --color-text-primary: #181C32;
+    --color-background-tertiary: #FFC64D;
+    --color-text-primary: #3F4254;
     --color-text-secondary: #B5B5C3;
-    --color-panel-highlight-primary: #FFC64D;
+    --color-text-tertiary: #FFC64D;
+    --color-text-quaternary: #FFFFFF;
+    --color-error: #a82321;
+    --color-valid: #8ab938;
 
     // General
     --general-font-family: 'Roboto';
@@ -32,23 +36,16 @@ $breakpoint-m: 768px;
 
     --side-logo-image-width: calc(var(--general-font-size) * 5);
 
-    --side-navigation-icon-size: calc(var(--general-font-size) * 2.1);
-    --side-navigation-icon-color: var(--color-text-secondary);
-    --side-navigation-icon-background-color: transparent;
-    --side-navigation-icon-color-hover: var(--color-panel-highlight-primary);
-    --side-navigation-icon-background-color-hover: var(--color-background-secondary);
-    --side-navigation-icon-tooltip-color: var(--color-text-primary);
-    --side-navigation-icon-tooltip-background-color: var(--color-background-primary);
-    --side-navigation-icon-tooltip-shadow-color: var(--color-text-secondary);
-
-    --side-menu-icon-size: calc(var(--general-font-size) * 2.1);
-    --side-menu-icon-color: var(--color-text-secondary);
-    --side-menu-icon-background-color: transparent;
-    --side-menu-icon-color-hover: var(--color-panel-highlight-primary);
-    --side-menu-icon-background-color-hover: var(--color-background-secondary);
-    --side-menu-icon-tooltip-color: var(--color-text-primary);
-    --side-menu-icon-tooltip-background-color: var(--color-background-primary);
-    --side-menu-icon-tooltip-shadow-color: var(--color-text-secondary);
+    --side-icon-size: calc(var(--general-font-size) * 2.1);
+    --side-icon-color: var(--color-text-secondary);
+    --side-icon-background-color: transparent;
+    --side-icon-color-hover: var( --color-text-tertiary);
+    --side-icon-background-color-hover: var(--color-background-secondary);
+    --side-icon-tooltip-color: var(--color-text-primary);
+    --side-icon-tooltip-background-color: var(--color-background-primary);
+    --side-icon-tooltip-shadow-color: var(--color-text-secondary);
+    --side-icon-counter-color: var(--color-text-quaternary);
+    --side-icon-counter-background-color: var(--color-error);
 
     // Header panel
     --header-background-color: var(--color-background);
@@ -61,7 +58,7 @@ $breakpoint-m: 768px;
     --header-logo-image-height: calc(var(--general-font-size) * 3.5);
 
     --header-text-title-font-size: calc(var(--general-font-size) * 2);
-    --header-text-title-color: var(--color-panel-highlight-primary);
+    --header-text-title-color: var(--color-text-tertiary);
     --header-text-description-font-size: calc(var(--general-font-size) * 0.8);
     --header-text-description-color: var(--color-text-primary);
 
@@ -69,8 +66,8 @@ $breakpoint-m: 768px;
     --header-buttons-button-tooltip-size: calc(var(--general-font-size) * 0.9);
     --header-buttons-button-color: var(--color-text-primary);
     --header-buttons-button-background-color: var(--color-background-primary);
-    --header-buttons-button-color-hover: var( --color-background-primary);
-    --header-buttons-button-background-color-hover: var(--color-panel-highlight-primary);
+    --header-buttons-button-color-hover: var(--color-text-quaternary);
+    --header-buttons-button-background-color-hover: var(--color-background-tertiary);
 
     // Main panel
     --main-background-color: transparent;
@@ -80,4 +77,30 @@ $breakpoint-m: 768px;
 
     // Footer panel
     --footer-background-color: transparent;
+
+    // Core
+    --fieldset-color: var(--color-text-secondary);
+    --fieldset-border-color: var(--color-background);
+
+    --button-font-size: var(--general-font-size);
+    --button-color: var(--color-text-primary);
+    --button-background-color: var(--color-background-secondary);
+    --button-color-active: var(--color-text-tertiary);
+    --button-background-color-active: var(--color-background-secondary);
+    --button-color-highlight: var(--color-text-quaternary);
+    --button-background-color-highlight: var(--color-background-tertiary);
+    --button-color-highlight-active: var(--color-text-primary);
+    --button-background-color-highlight-active: var(--color-background-tertiary);
+
+    --label-font-size: var(--general-font-size);
+    --label-color: var(--color-text-primary);
+
+    --input-font-size: var(--general-font-size);
+    --input-color: var(--color-text-primary);
+    --input-background-color: var(--color-background);
+    --input-outline-color: var(--color-background-tertiary);
+
+    --checkbox-color: var(--color-text-primary);
+    --checkbox-background-color: var(--color-background);
+    --checkbox-border-color: var(--color-background);
 }

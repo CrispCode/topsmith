@@ -11,7 +11,7 @@ export class Side extends Component {
   }
 
   createItem ( category, key, data ) {
-    const element = html( '<a class="topsmith-side-content-icon" data-icon-name="' + key + '" data-tooltip=""><span class="material-symbols-rounded"></span></a>' )
+    const element = html( '<a class="topsmith-side-content-icon" data-icon-name="' + key + '" data-tooltip="" data-counter="" data-modux-link=""><span class="material-symbols-rounded"></span></a>' )
     element.__watcher = this.store.on( 'topsmith.#.side.' + category + '.' + key, ( data ) => {
       // We only change class if it's needed
       if ( data.active && !element.classList.contains( 'active' ) ) {
@@ -52,18 +52,27 @@ export class Side extends Component {
           }
           break
         case 'external':
-          if ( !value ) {
+          if ( value ) {
+            element.removeAttribute( 'data-modux-link' )
+          } else {
             element.setAttribute( 'data-modux-link', '' )
           }
           break
         case 'target':
           if ( value ) {
             element.setAttribute( 'target', value )
+          } else {
+            element.removeAttribute( 'target' )
           }
           break
         case 'section':
           if ( value ) {
             element.setAttribute( 'data-section', value )
+          }
+          break
+        case 'counter':
+          if ( value !== element.getAttribute( 'data-counter' ) ) {
+            element.setAttribute( 'data-counter', value )
           }
           break
       }

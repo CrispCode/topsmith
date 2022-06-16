@@ -71,8 +71,8 @@
     
         .topsmith-side-content-icon {
             position: relative;
-            color: var(--side-navigation-icon-color);
-            background-color: var(--side-navigation-icon-background-color);
+            color: var(--side-icon-color);
+            background-color: var(--side-icon-background-color);
             margin: 0.3em;
             padding: 0.5em 0.6em 0.4em;
             border-radius: 6px;
@@ -80,34 +80,58 @@
             text-decoration: none;
     
             & > * {
-                font-size: var(--side-navigation-icon-size);
-                width: var(--side-navigation-icon-size);    
+                font-size: var(--side-icon-size);
+                width: var(--side-icon-size);    
             }
     
-            &:hover {
-                color: var(--side-navigation-icon-color-hover);
-                background-color: var(--side-navigation-icon-background-color-hover);
-    
-                &::after {
-                    content: attr(data-tooltip);
-                    position: absolute;
-                    box-sizing: border-box;
-                    top: calc(50% - 1.2em);
-                    left: calc(100% + 0.5em);
-                    padding: 1em;
-                    font-size: 0.7em;
-                    text-transform: uppercase;
-                    color: var(--side-navigation-icon-tooltip-color);
-                    background-color: var(--side-navigation-icon-tooltip-background-color);
-                    @include shadow(0px 0px 0.2em var(--side-navigation-icon-tooltip-shadow-color));
-                    border-radius: 6px;
-                    z-index: 100;
-                }    
+            &::before {
+                content: attr(data-counter);
+                position: absolute;
+                box-sizing: border-box;
+                bottom: 0;
+                right: 0;
+                font-size: 0.6em;
+                text-transform: uppercase;
+                border-radius: 5px;
+                padding: 2px 3px;
+                overflow: hidden;
+                text-align: center;
+                color: var(--side-icon-counter-color);
+                background-color: var(--side-icon-counter-background-color);
+            }
+            &[data-counter=""]::before {
+                display: none;
+            }
+
+            @include hasHover() {
+                &:hover {
+                    color: var(--side-icon-color-hover);
+                    background-color: var(--side-icon-background-color-hover);
+        
+                    &::after {
+                        content: attr(data-tooltip);
+                        position: absolute;
+                        box-sizing: border-box;
+                        top: calc(50% - 1.2em);
+                        left: calc(100% + 0.5em);
+                        padding: 1em;
+                        font-size: 0.7em;
+                        text-transform: uppercase;
+                        color: var(--side-icon-tooltip-color);
+                        background-color: var(--side-icon-tooltip-background-color);
+                        @include shadow(0px 0px 0.2em var(--side-icon-tooltip-shadow-color));
+                        border-radius: 6px;
+                        z-index: 100;
+                    }
+                    &[data-tooltip=""]::after {
+                        display: none;
+                    }    
+                }
             }
     
             &.active {
-                color: var(--side-navigation-icon-color-hover);
-                background-color: var(--side-navigation-icon-background-color-hover);
+                color: var(--side-icon-color-hover);
+                background-color: var(--side-icon-background-color-hover);
             }
         }
     }

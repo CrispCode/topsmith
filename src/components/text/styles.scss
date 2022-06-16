@@ -1,0 +1,21 @@
+.component-text {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin: 10px 0;
+
+    @include bp-l {
+        flex-wrap: wrap;
+
+        .topsmith-label {
+            width: 100%;
+        }
+    
+        .topsmith-field {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}

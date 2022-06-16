@@ -11,7 +11,7 @@ export class Header extends Component {
   }
 
   createItem ( key, data ) {
-    const element = html( '<a class="topsmith-header-content-button" data-icon-name="' + key + '"><span class="material-symbols-rounded"></span><span class="topsmith-header-content-button-tooltip"></span></a>' )
+    const element = html( '<a class="topsmith-header-content-button" data-icon-name="' + key + '" data-modux-link=""><span class="material-symbols-rounded"></span><span class="topsmith-header-content-button-tooltip"></span></a>' )
     element.__watcher = this.store.on( 'topsmith.#.header.buttons.' + key, ( data ) => {
       // We only change class if it's needed
       if ( data.active && !element.classList.contains( 'active' ) ) {
@@ -53,13 +53,17 @@ export class Header extends Component {
           }
           break
         case 'external':
-          if ( !value ) {
+          if ( value ) {
+            element.removeAttribute( 'data-modux-link' )
+          } else {
             element.setAttribute( 'data-modux-link', '' )
           }
           break
         case 'target':
           if ( value ) {
             element.setAttribute( 'target', value )
+          } else {
+            element.removeAttribute( 'target' )
           }
           break
       }

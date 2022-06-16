@@ -17,6 +17,9 @@ import { Section } from './core/section'
 
 import { defaults } from './config.js'
 
+// Components
+import { ComponentText } from './components/text'
+
 class Topsmith {
   constructor () {
     // Create application
@@ -65,6 +68,19 @@ class Topsmith {
     }
     return this
   }
+
+  addComponent ( component ) {
+    let nameParts = component.name.split( /(?=[A-Z])/ )
+    nameParts = nameParts.map( ( value ) => {
+      return value.toLowerCase()
+    } )
+    this.app.addDependency( 'topsmith-' + nameParts.join( '-' ), component )
+  }
 }
 
-export let topsmith = new Topsmith()
+let topsmith = new Topsmith()
+
+export {
+  topsmith,
+  ComponentText
+}
