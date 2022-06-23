@@ -11,7 +11,13 @@
     font-family: var(--general-font-family);
     font-size: var(--general-font-size);
 
+    .topsmith-side {
+        z-index: 2;
+    }
+
     .topsmith-content {
+        z-index: 1;
+
         flex-grow: 1;
         display: flex;
         box-sizing: border-box;
@@ -25,6 +31,20 @@
                 height: 100vh;
                 min-height: 100vh;
             }
-        }    
+        }
+
+        .topsmith-header {
+            z-index: 3;
+        }
+        .topsmith-main {
+            z-index: 1;
+        }
+        .topsmith-footer {
+            z-index: 2;
+        }
+    }
+
+    .topsmith-popup {
+        z-index: 3;
     }
 }

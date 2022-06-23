@@ -75,6 +75,11 @@ $breakpoint-m: 768px;
     --main-page-border-color: var(--color-background);
     --main-page-shadow-color: var(--color-background-secondary);
 
+    // Popup
+    --popup-background-color: var(--color-background-primary);
+    --popup-border-color: var(--color-background);
+    --popup-shadow-color: var(--color-background-secondary);
+
     // Footer panel
     --footer-background-color: transparent;
 
@@ -91,6 +96,7 @@ $breakpoint-m: 768px;
     --button-background-color-highlight: var(--color-background-tertiary);
     --button-color-highlight-active: var(--color-text-primary);
     --button-background-color-highlight-active: var(--color-background-tertiary);
+    --button-outline-color: var(--color-background-tertiary);
 
     --label-font-size: var(--general-font-size);
     --label-color: var(--color-text-primary);
@@ -114,4 +120,30 @@ $breakpoint-m: 768px;
     --select-color: var(--color-text-primary);
     --select-background-color: var(--color-background);
     --select-outline-color: var(--color-background-tertiary);
+
+    --textarea-font-size: var(--general-font-size);
+    --textarea-color: var(--color-text-primary);
+    --textarea-background-color: var(--color-background);
+    --textarea-outline-color: var(--color-background-tertiary);
+
+    // COMPONENTS
+    --component-calendar-font-size: calc(var(--general-font-size) * 1.2);
+    --component-calendar-background: var(--color-background-primary);
+    --component-calendar-border-color: var(--color-background);
+    --component-calendar-text-color: var(--color-text-primary);
+    --component-calendar-text-color-secondary: var(--color-text-secondary);
+    --component-calendar-selected-color: var(--color-text-quaternary);
+    --component-calendar-selected-background-color: var(--color-text-tertiary);
+    --component-calendar-today-color: var(--color-text-primary);
+    --component-calendar-today-background-color: var(--color-background);
+
+    --component-clock-font-size: calc(var(--general-font-size) * 1.2);
+    --component-clock-background: var(--color-background-primary);
+    --component-clock-border-color: var(--color-background);
+    --component-clock-text-color: var(--color-text-primary);
+    --component-clock-panel-background: var(--color-background);
+    --component-clock-panel-border-color: var(--color-text-secondary);
+    --component-clock-panel-hand-hour: var(--color-background-tertiary);
+    --component-clock-panel-hand-minute: var(--color-background-tertiary);
+    --component-clock-panel-hand-second: var(--color-background-tertiary);
 }

@@ -9,6 +9,7 @@ import { Side } from './../side'
 import { Header } from './../header'
 import { Main } from './../main'
 import { Footer } from './../footer'
+import { Popup } from '../popup'
 
 export class Frame extends Component {
   get template () {
@@ -26,6 +27,7 @@ export class Frame extends Component {
     this.add( 'header', Header )
     this.add( 'main', Main )
     this.add( 'footer', Footer )
+    this.add( 'popup', Popup )
   }
 
   execute () {

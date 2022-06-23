@@ -2,7 +2,7 @@
 
 'use strict'
 
-import { topsmith, ComponentText } from './../src/index.js'
+import { topsmith, ComponentCalendar, ComponentClock } from './../src/index.js'
 
 import './app.scss'
 
@@ -15,7 +15,8 @@ import { SectionProjects } from './sections/projects'
 window.addEventListener( 'load', () => {
   topsmith.debug( true )
 
-  topsmith.addComponent( ComponentText )
+  topsmith.registerComponent( ComponentCalendar )
+  topsmith.registerComponent( ComponentClock )
 
   topsmith
     // Side

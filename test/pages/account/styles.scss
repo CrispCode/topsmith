@@ -1,3 +1,8 @@
 .page-account {
     display: block;
+
+    #calendar, #clock {
+        display: inline-block;
+        vertical-align: top;
+    }
 }

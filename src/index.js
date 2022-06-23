@@ -18,7 +18,8 @@ import { Section } from './core/section'
 import { defaults } from './config.js'
 
 // Components
-import { ComponentText } from './components/text'
+import { ComponentCalendar } from './components/calendar'
+import { ComponentClock } from './components/clock'
 
 class Topsmith {
   constructor () {
@@ -69,12 +70,21 @@ class Topsmith {
     return this
   }
 
-  addComponent ( component ) {
+  registerComponent ( component ) {
     let nameParts = component.name.split( /(?=[A-Z])/ )
     nameParts = nameParts.map( ( value ) => {
       return value.toLowerCase()
     } )
     this.app.addDependency( 'topsmith-' + nameParts.join( '-' ), component )
+  }
+
+  renderComponent ( element ) {
+    this.app.createComponent( element )
+    return element.moduxComponent
+  }
+
+  popup ( template ) {
+    this.app.store.set( 'topsmith.#.popup', template )
   }
 }
 
@@ -82,5 +92,6 @@ let topsmith = new Topsmith()
 
 export {
   topsmith,
-  ComponentText
+  ComponentCalendar,
+  ComponentClock
 }

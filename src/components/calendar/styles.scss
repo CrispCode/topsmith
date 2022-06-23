@@ -1,0 +1,89 @@
+.component-calendar {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: var(--component-calendar-font-size);
+    background-color: var(--component-calendar-background);
+    border: 2px solid var(--component-calendar-border-color);
+    width: 9.7em;
+
+    .component-calendar-month {
+        display: block;
+        font-size: 0.9em;
+        width: 50%;
+        margin: 0.3em 0 0.1em;
+        box-sizing: border-box;
+        padding: 0 0.5em;
+        border: 0;
+        outline: 0;
+        color: var(--component-calendar-text-color);
+        text-align: left;
+        appearance: none;
+    }
+
+    .component-calendar-year {
+        display: block;
+        box-sizing: border-box;
+        font-size: 0.9em;
+        width: 50%;
+        margin: 0.3em 0 0.1em;
+        box-sizing: border-box;
+        padding: 0 0.5em;
+        border: 0;
+        outline: 0;
+        color: var(--component-calendar-text-color);
+        text-align: right;
+    }
+
+    .component-calendar-days {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .component-calendar-days-header {
+            display: block;
+            font-size: 0.74em;
+            font-weight: 400;
+            line-height: 1.7em;
+            width: 1.7em;
+            height: 1.7em;
+            text-align: center;
+            color: var(--component-calendar-text-color);
+        }
+
+        .component-calendar-days-col {
+            display: block;
+            box-sizing: border-box;
+            font-size: 0.74em;
+            line-height: 1.7em;
+            width: 1.7em;
+            height: 1.7em;
+            text-align: center;
+            color: var(--component-calendar-text-color-secondary);
+            cursor: pointer;
+
+            &.today {
+                font-weight: bold;
+                border-radius: 1.7em;
+                color: var(--component-calendar-today-color);
+                background-color: var(--component-calendar-today-background-color);
+            }
+
+            &.selected {
+                font-weight: bold;
+                border-radius: 1.7em;
+                color: var(--component-calendar-selected-color);
+                background-color: var(--component-calendar-selected-background-color);
+            }
+        }
+    }
+
+    .component-calendar-input {
+        display: none;
+    }
+}

@@ -109,10 +109,15 @@ html, body {
     border-radius: 5px;
     border: 0;
     cursor: pointer;
+    outline: 0;
 
     &.highlight {
         color: var(--button-color-highlight);
         background-color: var(--button-background-color-highlight);
+    }
+
+    &:focus {
+        box-shadow: 0 0 2px 1px var(--button-outline-color);
     }
 
     @include hasHover() {
@@ -211,6 +216,7 @@ html, body {
     border: 0;
     background-color: var(--select-background-color);
     outline: 0;
+    appearance: none;
 
     & > option {
         box-sizing: border-box;
@@ -221,10 +227,6 @@ html, body {
         &:checked, &:hover {
             background-color: var(--select-outline-color);
         }
-    }
-
-    &[multiple] {
-        padding: 0;
     }
 
     &:focus {
@@ -244,5 +246,24 @@ html, body {
     & > legend {
         font-weight: 500;
         color: var(--fieldset-color);
+    }
+}
+
+.topsmith-textarea {
+    display: block;
+    box-sizing: border-box;
+    font-size: var(--textarea-font-size);
+    color: var(--textarea-color);    
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    border: 0;
+    background-color: var(--textarea-background-color);
+    outline: 0;
+    resize: none;
+    height: 15.7em;
+
+    &:focus {
+        box-shadow: 0 0 2px 1px var(--textarea-outline-color);
     }
 }

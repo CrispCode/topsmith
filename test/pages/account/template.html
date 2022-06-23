@@ -1,13 +1,14 @@
 <div class="page-account">
-    <!-- <div data-modux-component="topsmith-component-text" data-error="There was an error" data-label="Email" data-type="email" data-name="email" data-placeholder="Enter your email address..."></div>
-    <div data-modux-component="topsmith-component-text" data-required="true" data-label="Looong ass labellll and shit like that Looong ass labellll and shit like that" data-name="long" data-placeholder="Enter your email address..."></div>
-    <div data-modux-component="topsmith-component-text" data-required="true" data-label="Long ass label" data-name="t3" data-placeholder="Enter your email address..."></div> -->
-    <div class="topsmith-label">The components should be a function called on the element. Similar to how JQuery works</div>
+
+    <div id="calendar" data-modux-component="topsmith-component-calendar" data-locked="false"></div>
+    <div id="clock" data-modux-component="topsmith-component-clock"></div>
+
+    <br/>
 
     <label class="topsmith-field">
         <span class="topsmith-label">Test</span>
         <span  class="topsmith-value">
-            <input list="l1" class="topsmith-input" type="email" placeholder="Enter your email address..."/>
+            <input id="i" class="topsmith-input" type="email" placeholder="Enter your email address..."/>
         </span>
     </label>
 
@@ -82,4 +83,7 @@
         <option value="s4">Select 4</option>
     </select>
 
+    <br/>
+
+    <textarea class="topsmith-textarea"></textarea>
 </div>

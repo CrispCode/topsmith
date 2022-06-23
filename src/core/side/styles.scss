@@ -12,7 +12,6 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 50;
         }
     }
 
@@ -28,6 +27,8 @@
     }
 
     .topsmith-side-content-icons {
+        z-index: 2;
+
         display: flex;
         position: relative;
         box-sizing: border-box;
@@ -121,7 +122,7 @@
                         background-color: var(--side-icon-tooltip-background-color);
                         @include shadow(0px 0px 0.2em var(--side-icon-tooltip-shadow-color));
                         border-radius: 6px;
-                        z-index: 100;
+                        z-index: 1;
                     }
                     &[data-tooltip=""]::after {
                         display: none;
@@ -137,6 +138,8 @@
     }
 
     .topsmith-side-content-sections {
+        z-index: 1;
+
         display: block;
         position: relative;
         box-sizing: border-box;
