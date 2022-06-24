@@ -126,6 +126,11 @@ $breakpoint-m: 768px;
     --textarea-background-color: var(--color-background);
     --textarea-outline-color: var(--color-background-tertiary);
 
+    --progress-font-size: var(--general-font-size);
+    --progress-color: var(--color-text-primary);
+    --progress-bar-color: var(--color-background-tertiary);
+    --progress-bar-background-color: var(--color-background);
+
     // COMPONENTS
     --component-calendar-font-size: calc(var(--general-font-size) * 1.2);
     --component-calendar-background: var(--color-background-primary);
@@ -141,8 +146,8 @@ $breakpoint-m: 768px;
     --component-clock-background: var(--color-background-primary);
     --component-clock-border-color: var(--color-background);
     --component-clock-text-color: var(--color-text-primary);
-    --component-clock-panel-background: var(--color-background);
-    --component-clock-panel-border-color: var(--color-text-secondary);
+    --component-clock-panel-background: var(--color-background-primary);
+    --component-clock-panel-border-color: var(--color-background);
     --component-clock-panel-hand-hour: var(--color-background-tertiary);
     --component-clock-panel-hand-minute: var(--color-background-tertiary);
     --component-clock-panel-hand-second: var(--color-background-tertiary);
