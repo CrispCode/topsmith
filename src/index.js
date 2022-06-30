@@ -20,6 +20,8 @@ import { defaults } from './config.js'
 // Components
 import { ComponentCalendar } from './components/calendar'
 import { ComponentClock } from './components/clock'
+import { ComponentDatatable } from './components/datatable'
+import { ComponentHtmlEditor } from './components/html-editor'
 
 class Topsmith {
   constructor () {
@@ -76,10 +78,15 @@ class Topsmith {
       return value.toLowerCase()
     } )
     this.app.addDependency( 'topsmith-' + nameParts.join( '-' ), component )
+    return 'topsmith-' + nameParts.join( '-' )
   }
 
-  renderComponent ( element ) {
-    this.app.createComponent( element )
+  renderComponent ( element, dependency ) {
+    if ( dependency ) {
+      this.app.__createComponent( element, dependency )
+    } else {
+      this.app.createComponent( element )
+    }
     return element.moduxComponent
   }
 
@@ -93,5 +100,7 @@ let topsmith = new Topsmith()
 export {
   topsmith,
   ComponentCalendar,
-  ComponentClock
+  ComponentClock,
+  ComponentDatatable,
+  ComponentHtmlEditor
 }

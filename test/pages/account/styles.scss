@@ -5,4 +5,20 @@
         display: inline-block;
         vertical-align: top;
     }
+
+    #html-editor {
+        height: 50em;
+    }
+
+    #datatable {
+        .position-left {
+            text-align: left;
+        }
+        .position-center {
+            text-align: center;
+        }
+        .position-right {
+            text-align: right;
+        }
+    }
 }

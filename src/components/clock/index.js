@@ -132,8 +132,4 @@ export class ComponentClock extends BaseComponent {
       this.set( 'time', time )
     } )
   }
-
-  get field () {
-    return this.element.querySelector( '.component-clock-input' )
-  }
 }

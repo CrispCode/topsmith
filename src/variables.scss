@@ -151,4 +151,25 @@ $breakpoint-m: 768px;
     --component-clock-panel-hand-hour: var(--color-background-tertiary);
     --component-clock-panel-hand-minute: var(--color-background-tertiary);
     --component-clock-panel-hand-second: var(--color-background-tertiary);
+
+    --component-html-editor-toolbar-bar-background: transparent;
+    --component-html-editor-toolbar-bar-button-background: var(--color-background-primary);
+    --component-html-editor-toolbar-bar-button-border: var(--color-background);
+    --component-html-editor-toolbar-bar-button-color: var(--color-text-secondary);
+    --component-html-editor-toolbar-bar-button-highlight-background: var(--color-background-primary);
+    --component-html-editor-toolbar-bar-button-highlight-border: var(--color-background-tertiary);
+    --component-html-editor-toolbar-bar-button-highlight-color: var(--color-text-tertiary);
+    --component-html-editor-view-border: var(--color-background);
+
+    --component-datatable-font-size: var(--general-font-size);
+    --component-datatable-text-color: var(--color-text-primary);
+    --component-datatable-background: var(--color-background);
+    --component-datatable-background-primary: var(--color-background-primary);
+    --component-datatable-background-secondary: var(--color-background-secondary);
+    --component-datatable-border: var(--color-background);
+    --component-datatable-label-font-size: var(--general-font-size);
+    --component-datatable-label-text-color: var(--color-text-primary);
+    --component-datatable-highlight-text-color: var(--color-text);
+    --component-datatable-highlight-background: var(--color-background-tertiary);
+
 }

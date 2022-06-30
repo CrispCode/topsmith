@@ -1,0 +1,57 @@
+.component-html-editor {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 30em;
+    height: 100%;
+
+    .component-html-editor-toolbar {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0.3em 0;
+        background-color: var(--component-html-editor-toolbar-bar-button-background);
+
+        .component-html-editor-toolbar-button {
+            display: inline-block;
+            box-sizing: border-box;
+            vertical-align: top;
+            padding: 0.2em 0.8em;
+            height: 2.4em;
+            border-radius: 5px;
+            border: 2px solid var(--component-html-editor-toolbar-bar-button-border);
+            color: var(--component-html-editor-toolbar-bar-button-color);
+            background-color: var(--component-html-editor-toolbar-bar-button-background);
+            text-align: center;
+            cursor: pointer;
+
+            &.active {
+                border: 2px solid var(--component-html-editor-toolbar-bar-button-highlight-border);
+                color: var(--component-html-editor-toolbar-bar-button-highlight-color);
+                background-color: var(--component-html-editor-toolbar-bar-button-highlight-background);
+            }
+        }
+    }
+
+    .component-html-editor-edit {
+        display: block;
+        height: 100%;
+        flex-grow: 1;
+    }
+
+    .component-html-editor-view {
+        display: block;
+        height: 100%;
+        flex-grow: 1;
+        border: 2px solid var(--component-html-editor-view-border);
+        border-radius: 5px;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    parsererror {
+        overflow: auto;
+    }
+}

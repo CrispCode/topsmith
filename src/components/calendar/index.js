@@ -201,8 +201,4 @@ export class ComponentCalendar extends BaseComponent {
       this.set( 'date', date )
     } )
   }
-
-  get field () {
-    return this.element.querySelector( '.component-calendar-input' )
-  }
 }

@@ -97,7 +97,7 @@ html, body {
     }
 }
 
-.button {
+.topsmith-button {
     display: inline-block;
     box-sizing: border-box;
     padding: 1em 3em;
@@ -296,12 +296,6 @@ html, body {
     &::-webkit-progress-value {
         background-color: var(--progress-bar-color);
         background-size: 4em 100%;
-        background-image:
-            -webkit-linear-gradient( 135deg,
-                                transparent,
-                                transparent 33%,
-                                rgba(0,0,0,.05) 33%,
-                                rgba(0,0,0,.05) 66%,
-                                transparent 66%)
+        background-image: linear-gradient( 135deg, transparent, transparent 33%, rgba(0,0,0,.03) 33%, rgba(0,0,0,.03) 66%, transparent 66%)
     }
 }
