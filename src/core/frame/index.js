@@ -1,6 +1,6 @@
 'use strict'
 
-import { Component } from '@crispcode/modux'
+import { Component, scroll } from '@crispcode/modux'
 
 import template from './template.html'
 import './styles.scss'
@@ -14,6 +14,10 @@ import { Popup } from '../popup'
 export class Frame extends Component {
   get template () {
     return template
+  }
+
+  onStateChange () {
+    scroll.elementScrollTo( this.element.querySelector( '.topsmith-content' ), 0, 0, 10 )
   }
 
   add ( name, code ) {

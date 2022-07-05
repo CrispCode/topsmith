@@ -20,19 +20,24 @@
         display: inline-block;
         box-sizing: border-box;
         vertical-align: top;
-        padding: 10px;
 
         &.hide {
             display: none;
         }
 
-        & > * {
+        & > .topsmith-page {
+            position: relative;
             box-sizing: border-box;
+            margin: 10px;
             padding: 20px;
             border-radius: 6px;
             @include shadow( 0px 0px 35px 0px var(--main-page-shadow-color) );
             border: 2px solid var(--main-page-border-color);
             background-color: var(--main-page-background-color);
+
+            @include bp-l {
+                margin: 5px
+            }
         }
 
         &.x3 {
@@ -48,7 +53,6 @@
         }
 
         @include bp-l {
-            padding: 5px;
 
             &.x2 {
                 width: 100%;

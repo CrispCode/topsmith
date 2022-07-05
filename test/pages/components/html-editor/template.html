@@ -1,0 +1,61 @@
+<div class="topsmith-page page-html-editor">
+
+    <h2>HTML Editor</h2>
+
+    <h4>A custom built html editor</h4>
+    <section data-modux-component="topsmith-component-html-editor"></section>
+    
+    <br/><br/>
+    
+    <h4>HTML Usage:</h4>
+    <div>You can instance an html-editor element directly from HTML by simply adding the attribute <code class="topsmith-highlight">[data-modux-component="topsmith-component-html-editor"]</code> to an element. For this to work, you need to load the html-editor component in the application: <code class="topsmith-highlight">topsmith.registerComponent( ComponentHtmlEditor )</code></div>
+    <br/>
+    <textarea class="topsmith-textarea" readonly>
+&lt;section data-modux-component="topsmith-component-html-editor"&gt;&lt;/section&gt; 
+    </textarea>
+
+    <br/><br/>
+
+    <h4>JS Usage:</h4>
+    <div>Considering we have the following element:</div>
+    <br/>
+    <textarea class="topsmith-textarea" readonly>
+&lt;div id="html-editor"&gt;&lt;/div&gt; 
+    </textarea>
+    <br/><br/>
+    <div>In order to create the html-editor component on the element, you would need to add this to the <code>execute()</code> method of your page controller.</div>
+    <br/>
+    <textarea class="topsmith-textarea" readonly>
+let htmlEditor = topsmith.renderComponent( this.element.querySelector( '#html-editor' ), ComponentHtmlEditor )
+htmlEditor.set( 'text', '<div style="text-align:center">ASD</div>' )
+    </textarea>
+
+    <br/><br/>
+
+    <div>You can customize the component by changing the properties via HTML attributes or js with <code class="topsmith-highlight">object.set( property, value)</code></div>
+
+    <br/><br/>
+
+    <div class="table">
+        <span class="cell header">Property</span>
+        <span class="cell header">HTML Attribute</span>
+        <span class="cell header">Type</span>
+        <span class="cell header">Default</span>
+
+        <span class="cell">name</span>
+        <span class="cell">data-name</span>
+        <span class="cell">String</span>
+        <span class="cell">&nbsp;</span>
+
+        <span class="cell">locked</span>
+        <span class="cell">data-locked</span>
+        <span class="cell">String | Boolean</span>
+        <span class="cell">false</span>
+
+        <span class="cell">text</span>
+        <span class="cell">-</span>
+        <span class="cell">String | HTMLElement</span>
+        <span class="cell">&nbsp;</span>
+    </div>
+
+</div>

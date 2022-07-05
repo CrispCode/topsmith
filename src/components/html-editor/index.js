@@ -56,14 +56,18 @@ export class ComponentHtmlEditor extends BaseComponent {
           text.value = value
 
           let view = this.element.querySelector( '.component-html-editor-view' )
-          view.innerHTML = ''
+          view.onload = () => {
+            let output = view.contentWindow.document.body
 
-          let parser = new DOMParser()
-          let errorNode = parser.parseFromString( '<article>' + text.value + '</article>', 'application/xml' ).querySelector( 'parsererror' )
-          if ( errorNode ) {
-            view.appendChild( errorNode )
+            let parser = new DOMParser()
+            let errorNode = parser.parseFromString( '<article>' + text.value + '</article>', 'application/xml' ).querySelector( 'parsererror' )
+            if ( errorNode ) {
+              output.innerHTML += '<style>parsererror {overflow: auto;}</style>'
+              output.appendChild( errorNode )
+            }
+            output.innerHTML += text.value
           }
-          view.innerHTML = view.innerHTML + text.value
+          view.src = ''
         }
       }
     }

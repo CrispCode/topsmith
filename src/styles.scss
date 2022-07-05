@@ -262,6 +262,7 @@ html, body {
     outline: 0;
     resize: none;
     height: 15.7em;
+    white-space: pre;
 
     &:focus {
         box-shadow: 0 0 2px 1px var(--textarea-outline-color);
@@ -298,4 +299,12 @@ html, body {
         background-size: 4em 100%;
         background-image: linear-gradient( 135deg, transparent, transparent 33%, rgba(0,0,0,.03) 33%, rgba(0,0,0,.03) 66%, transparent 66%)
     }
+}
+
+.topsmith-highlight {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: var(--code-font-size);
+    background-color: var(--code-background-color);
 }

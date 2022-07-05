@@ -145,8 +145,8 @@ export class Side extends Component {
       let sections = this.store.get( 'topsmith.side.sections' )
 
       // Only make changes if they are needed
-      let previous = container.querySelector( '[data-modux-componet]' )
-      if ( !previous || ( previous && previous.getAttribute( '[data-section-name]' ) !== name ) ) {
+      let previous = container.querySelector( '[data-modux-component]' )
+      if ( !previous || ( previous && previous.getAttribute( 'data-section-name' ) !== name ) ) {
         // Remove previous section
         if ( container.firstElementChild ) {
           container.firstElementChild.remove()

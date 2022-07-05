@@ -1,0 +1,38 @@
+.page-clock {
+    display: block;
+
+    .table {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+
+        .cell {
+            box-sizing: border-box;
+            border: 1px solid #DFDFDF;
+            padding: 0.3em;
+            text-align: center;
+            white-space: break-spaces;
+        }
+
+        .cell:nth-of-type(4n+1) {
+            width: 20%;
+        }
+        .cell:nth-of-type(4n+2) {
+            width: 20%;
+        }
+        .cell:nth-of-type(4n+3) {
+            width: 20%;
+        }
+        .cell:nth-of-type(4n+4) {
+            width: 40%;
+        }
+
+        .header {
+            font-weight: bold;
+            border: 0;
+            text-align: center;
+        }
+    }
+}

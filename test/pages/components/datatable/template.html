@@ -1,0 +1,173 @@
+<div class="topsmith-page page-datatable">
+
+    <h2>Datatable</h2>
+
+    <h4>A custom built datatable</h4>
+    <section data-modux-component="topsmith-component-datatable"
+        data-count="2"
+        data-columns='[ "Column1", "Column2", "Column3" ]'
+        data-data='[ [ "Item1", "Item2", "Item3" ], [ "Item4", "Item5", "Item6" ], [ "Item7", "Item8", "Item9" ] ]'></section>
+    
+    <br/><br/>
+    
+    <h4>HTML Usage:</h4>
+    <div>You can instance a datatable element directly from HTML by simply adding the attribute <code class="topsmith-highlight">[data-modux-component="topsmith-component-datatable"]</code> to an element. For this to work, you need to load the datatable component in the application: <code class="topsmith-highlight">topsmith.registerComponent( ComponentDatatable )</code></div>
+    <br/>
+    <textarea class="topsmith-textarea" readonly>
+&lt;section data-modux-component="topsmith-component-datatable"
+    data-count="2"
+    data-columns='[ "Column1", "Column2", "Column3" ]'
+    data-data='[ [ "Item1", "Item2", "Item3" ], [ "Item4", "Item5", "Item6" ], [ "Item7", "Item8", "Item9" ] ]'&gt;&lt;/section&gt;
+    </textarea>
+
+    <br/><br/>
+
+    <h4>JS Usage:</h4>
+    <div>Considering we have the following element:</div>
+    <br/>
+    <textarea class="topsmith-textarea" readonly>
+&lt;div id="datatable"&gt;&lt;/div&gt; 
+    </textarea>
+    <br/><br/>
+    <div>In order to create the datatable component on the element, you would need to add this to the <code>execute()</code> method of your page controller.</div>
+    <br/>
+    <textarea class="topsmith-textarea" readonly>
+let datatable = topsmith.renderComponent( this.element.querySelector( '#datatable' ), ComponentDatatable )
+datatable.set( 'columns', {
+    c1: {
+      name: 'Column 1',
+      style: 'position-left',
+      sortable: true,
+      searchable: true
+    },
+    c2: {
+      name: 'Column 2',
+      style: 'position-center',
+      sortable: false
+    },
+    c3: {
+      name: 'Column 3',
+      style: 'position-right',
+      sortable: true,
+      searchable: true
+    }
+} )
+
+datatable.set( 'count', 2 )
+
+datatable.set( 'data', [
+    { c1: 1, c2: 2, c3: 3 },
+    { c1: 4, c2: 5, c3: 6 },
+    { c1: 7, c2: 8, c3: 9 }
+] )
+    </textarea>
+
+    <br/><br/>
+
+    <div>You can customize the component by changing the properties via HTML attributes or js with <code class="topsmith-highlight">object.set( property, value)</code></div>
+
+    <br/><br/>
+
+    <div class="table">
+        <span class="cell header">Property</span>
+        <span class="cell header">HTML Attribute</span>
+        <span class="cell header">Type</span>
+        <span class="cell header">Default</span>
+
+        <span class="cell">label</span>
+        <span class="cell">&nbsp;</span>
+        <span class="cell">String</span>
+        <span class="cell">Showing %count% of %filtered% records. ( %total% total records )</span>
+
+        <span class="cell">search</span>
+        <span class="cell">data-search</span>
+        <span class="cell">String</span>
+        <span class="cell">&nbsp;</span>
+
+        <span class="cell">count</span>
+        <span class="cell">data-count</span>
+        <span class="cell">String | Integer</span>
+        <span class="cell">25</span>
+
+        <span class="cell">order</span>
+        <span class="cell">data-order</span>
+        <span class="cell">String | Array</span>
+        <span class="cell">[]</span>
+
+        <span class="cell">columns</span>
+        <span class="cell">data-columns</span>
+        <span class="cell">String | Array | JSON</span>
+        <span class="cell">[]</span>
+
+        <span class="cell">data</span>
+        <span class="cell">data-data</span>
+        <span class="cell">String | Array | JSON</span>
+        <span class="cell">[]</span>
+    </div>
+
+    <br/><br/>
+
+    <h4>An example of a complex datatable</h4>
+
+    <textarea class="topsmith-textarea" style="height: 70em;" readonly>
+    let datatable = topsmith.renderComponent( this.element.querySelector( '#datatable' ), ComponentDatatable )
+    let entries = [
+        { c1: 1, c2: 2, c3: 3 },
+        { c1: 4, c2: 5, c3: 6 },
+        { c1: 7, c2: 8, c3: 9 }
+    ]
+    datatable.set( 'columns', {
+      c1: {
+        name: 'Column 1',
+        style: 'position-left',
+        sortable: true,
+        searchable: true
+      },
+      c2: {
+        name: 'Column 2',
+        style: 'position-center',
+        sortable: false
+      },
+      c3: {
+        name: 'Column 3',
+        style: 'position-right',
+        sortable: true,
+        searchable: true
+      }
+    } )
+
+    datatable.set( 'count', 2 )
+
+    datatable.set( 'data', entries )
+
+    datatable.process( ( index, order, count, search, searchFields ) => {
+      let data = entries.clone()
+
+      data.sort( ( a, b ) => {
+        let column = order[ 0 ]
+        let direction = ( order[ 1 ] === 'asc' ) ? 1 : -1
+
+        return ( a[ column ] - b[ column ] ) * direction
+      } )
+
+      data = data.filter( ( value ) => {
+        if ( search ) {
+          let match = false
+          for ( let i = 0; i &lt; searchFields.length; i++ ) {
+            if ( value[ searchFields[ i ] ].toString().indexOf( search ) !== -1 ) {
+              match = true
+            }
+          }
+          return match
+        }
+        return true
+      } )
+
+      return Promise.resolve( {
+        recordsFiltered: data.length,
+        recordsTotal: 10,
+        data: data.slice( index, index + count )
+      } )
+    } )    
+    </textarea>
+</div>

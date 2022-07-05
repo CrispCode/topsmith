@@ -25,6 +25,9 @@
         flex-direction: column;
         align-items: stretch;
 
+        height: 100vh;
+        overflow: auto;
+
         @include bp-m {
             &.scroll-lock {
                 overflow: hidden;

@@ -131,6 +131,9 @@ $breakpoint-m: 768px;
     --progress-bar-color: var(--color-background-tertiary);
     --progress-bar-background-color: var(--color-background);
 
+    --code-font-size: var(--general-font-size);
+    --code-background-color: var(--color-background-tertiary);
+
     // COMPONENTS
     --component-calendar-font-size: calc(var(--general-font-size) * 1.2);
     --component-calendar-background: var(--color-background-primary);

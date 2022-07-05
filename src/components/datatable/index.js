@@ -22,6 +22,15 @@ export class ComponentDatatable extends BaseComponent {
       // Used for static data
       data: {
         default: [],
+        attribute: 'data-data',
+        parse: ( value ) => {
+          // String to JSON
+          if ( typeof value === 'string' ) {
+            value = value.replaceAll( '\'', '"' )
+            value = JSON.parse( value )
+          }
+          return value
+        },
         update: () => {
           this._page = 0
           this.refresh()
@@ -39,6 +48,13 @@ export class ComponentDatatable extends BaseComponent {
       count: {
         default: 25,
         attribute: 'data-count',
+        init: ( value ) => {
+          // String to Integer
+          if ( typeof value === 'string' ) {
+            value = parseInt( value )
+          }
+          return value
+        },
         update: () => {
           this.refresh()
         }
@@ -46,20 +62,34 @@ export class ComponentDatatable extends BaseComponent {
       order: {
         default: [],
         attribute: 'data-order',
+        init: ( value ) => {
+          // String to Array
+          if ( !Array.isArray( value ) ) {
+            value = value.split( ',' )
+          }
+          return value
+        },
         update: () => {
           this.refresh()
         }
       },
       columns: {
         default: {},
+        attribute: 'data-columns',
         parse: ( value ) => {
+          if ( typeof value === 'string' ) {
+            value = value.replaceAll( '\'', '"' )
+            value = JSON.parse( value )
+          }
           // Array to Object
           if ( Array.isArray( value ) ) {
             let result = {}
             loop( value, ( rows, index ) => {
               if ( typeof rows === 'string' ) {
                 result[ index ] = {
-                  name: rows
+                  name: rows,
+                  searchable: true,
+                  sortable: true
                 }
               } else {
                 result[ index ] = Object.assign( {}, rows )
@@ -72,6 +102,7 @@ export class ComponentDatatable extends BaseComponent {
         update: ( value ) => {
           let head = this.element.querySelector( 'thead tr' )
           head.innerHTML = ''
+
           loop( value, ( column, index ) => {
             let th = document.createElement( 'th' )
             th.setAttribute( 'data-index', index )
@@ -110,6 +141,7 @@ export class ComponentDatatable extends BaseComponent {
                 }
               } )
             }
+
             th.innerHTML = column.name
 
             head.appendChild( th )
@@ -124,38 +156,6 @@ export class ComponentDatatable extends BaseComponent {
     this._pages = 10
     this._showing = 0
     this._data = {}
-
-    // This will be rendered for static data
-    this._refreshFunction = ( index, order, count, search, searchFields ) => {
-      let data = this.get( 'data' )
-      let total = data.length
-
-      data.sort( ( a, b ) => {
-        let column = order[ 0 ]
-        let direction = ( order[ 1 ] === 'asc' ) ? 1 : -1
-
-        return ( a[ column ] - b[ column ] ) * direction
-      } )
-
-      data = data.filter( ( value ) => {
-        if ( search ) {
-          let match = false
-          for ( let i = 0; i < searchFields.length; i++ ) {
-            if ( value[ searchFields[ i ] ].toString().indexOf( search ) !== -1 ) {
-              match = true
-            }
-          }
-          return match
-        }
-        return true
-      } )
-
-      return Promise.resolve( {
-        recordsFiltered: data.length,
-        recordsTotal: total,
-        data: data.slice( index, index + count )
-      } )
-    }
 
     let butNext = this.element.querySelector( '.component-datatable-footer-next' )
     butNext.addEventListener( 'click', () => {
@@ -187,6 +187,46 @@ export class ComponentDatatable extends BaseComponent {
       this._refreshFunction = f
       this.refresh()
     }
+  }
+
+  // This will be rendered for static data
+  _refreshFunction ( index, order, count, search, searchFields ) {
+    let data = this.get( 'data' )
+    let total = data.length
+
+    if ( Array.isArray( order ) && order.length === 2 ) {
+      data.sort( ( a, b ) => {
+        let column = order[ 0 ]
+        let direction = ( order[ 1 ] === 'asc' ) ? 1 : -1
+
+        if ( a[ column ] < b[ column ] ) {
+          return -1 * direction
+        } else if ( a[ column ] > b[ column ] ) {
+          return 1 * direction
+        } else {
+          return 0
+        }
+      } )
+    }
+
+    data = data.filter( ( value ) => {
+      if ( search ) {
+        let match = false
+        for ( let i = 0; i < searchFields.length; i++ ) {
+          if ( value[ searchFields[ i ] ].toString().indexOf( search ) !== -1 ) {
+            match = true
+          }
+        }
+        return match
+      }
+      return true
+    } )
+
+    return Promise.resolve( {
+      recordsFiltered: data.length,
+      recordsTotal: total,
+      data: data.slice( index, index + count )
+    } )
   }
 
   refresh () {
@@ -222,7 +262,6 @@ export class ComponentDatatable extends BaseComponent {
 
     loop( data, ( row, irow ) => {
       this._showing = irow + 1
-
       if ( irow >= this.get( 'count' ) ) {
         return
       }
@@ -230,7 +269,12 @@ export class ComponentDatatable extends BaseComponent {
       let tr = document.createElement( 'tr' )
       tr.setAttribute( 'data-index', irow )
 
-      loop( this.get( 'columns' ), ( details, icol ) => {
+      let columns = this.get( 'columns' )
+      if ( Object.keys( columns ).length === 0 ) {
+        columns = row
+      }
+
+      loop( columns, ( details, icol ) => {
         let td = document.createElement( 'td' )
         td.setAttribute( 'data-index', icol )
         if ( details.style ) {
