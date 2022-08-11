@@ -22,6 +22,6 @@ export class PageHome extends topsmith.classes.Page {
   }
 
   execute () {
-    topsmith.popup( html( '<div>hello</div>' ) )
+    // topsmith.popup( html( '<div>hello</div>' ) )
   }
 }

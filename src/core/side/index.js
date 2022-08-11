@@ -97,7 +97,9 @@ export class Side extends Component {
         this.updateItem( value, element )
       } else {
         // Create element
-        container.appendChild( this.createItem( category, key, value ) )
+        if ( value ) {
+          container.appendChild( this.createItem( category, key, value ) )
+        }
       }
     } )
   }

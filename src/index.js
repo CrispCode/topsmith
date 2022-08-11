@@ -67,7 +67,7 @@ class Topsmith {
     if ( name ) {
       this.app.store.set( 'topsmith.' + name, value )
     } else {
-      this.app.store.get( 'topsmith', value )
+      this.app.store.set( 'topsmith', value )
     }
     return this
   }
