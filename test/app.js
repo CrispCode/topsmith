@@ -23,7 +23,6 @@ import { SectionComponents } from './sections/components'
 
 window.addEventListener( 'load', () => {
   topsmith.debug( true )
-  console.log( topsmith )
 
   topsmith
     // Side
