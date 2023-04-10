@@ -22,6 +22,9 @@ export class Side extends Component {
       }
     } )
     element.addEventListener( 'click', () => {
+      if ( typeof element.topsmithFunction === 'function' ) {
+        element.topsmithFunction( element )
+      }
       this.store.set( 'topsmith.#.side.section', data.section )
     } )
     this.updateItem( data, element )
@@ -73,6 +76,13 @@ export class Side extends Component {
         case 'counter':
           if ( value !== element.getAttribute( 'data-counter' ) ) {
             element.setAttribute( 'data-counter', value )
+          }
+          break
+        case 'function':
+          if ( typeof value === 'function' ) {
+            element.topsmithFunction = value
+          } else {
+            delete element.topsmithFunction
           }
           break
       }

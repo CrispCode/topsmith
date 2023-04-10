@@ -18,6 +18,7 @@
         padding: 0 0.5em;
         border: 0;
         outline: 0;
+        background-color: var(--component-calendar-background);
         color: var(--component-calendar-text-color);
         text-align: left;
         appearance: none;
@@ -33,6 +34,7 @@
         padding: 0 0.5em;
         border: 0;
         outline: 0;
+        background-color: var(--component-calendar-background);
         color: var(--component-calendar-text-color);
         text-align: right;
     }

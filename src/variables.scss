@@ -12,10 +12,10 @@ $breakpoint-m: 768px;
 
 :root {
     // Colors
-    --color-background: #EFF2F5;
-    --color-background-primary: #FFFFFF;
-    --color-background-secondary: #F5F8FA;
-    --color-background-tertiary: #FFC64D;
+    --color-background-primary: #EFF2F5;
+    --color-background-secondary: #FFFFFF;
+    --color-background-tertiary: #F5F8FA;
+    --color-background-quaternary: #FFC64D;
     --color-text-primary: #3F4254;
     --color-text-secondary: #B5B5C3;
     --color-text-tertiary: #FFC64D;
@@ -27,12 +27,12 @@ $breakpoint-m: 768px;
     --general-font-family: 'Roboto';
     --general-font-size: 14px;
     --general-font-color: var(--color-text-primary);
-    --general-background-color: var(--color-background);
+    --general-background-color: var(--color-background-primary);
 
     // Side panel
     --side-font-color: var(--color-text-secondary);
-    --side-background-color: var(--color-background-primary);
-    --side-border-color: var(--color-background);
+    --side-background-color: var(--color-background-secondary);
+    --side-border-color: var(--color-background-primary);
 
     --side-logo-image-width: calc(var(--general-font-size) * 5);
 
@@ -40,18 +40,18 @@ $breakpoint-m: 768px;
     --side-icon-color: var(--color-text-secondary);
     --side-icon-background-color: transparent;
     --side-icon-color-hover: var( --color-text-tertiary);
-    --side-icon-background-color-hover: var(--color-background-secondary);
+    --side-icon-background-color-hover: var(--color-background-tertiary);
     --side-icon-tooltip-color: var(--color-text-primary);
-    --side-icon-tooltip-background-color: var(--color-background-primary);
+    --side-icon-tooltip-background-color: var(--color-background-secondary);
     --side-icon-tooltip-shadow-color: var(--color-text-secondary);
     --side-icon-counter-color: var(--color-text-quaternary);
     --side-icon-counter-background-color: var(--color-error);
 
     // Header panel
-    --header-background-color: var(--color-background);
+    --header-background-color: var(--color-background-primary);
     --header-height: calc(var(--general-font-size) * 5.3);
 
-    --header-menu-background-color: var(--color-background-primary);
+    --header-menu-background-color: var(--color-background-secondary);
     --header-menu-color: var(--color-text-secondary);
     --header-menu-width: calc(var(--general-font-size) * 2.5);
 
@@ -65,114 +65,115 @@ $breakpoint-m: 768px;
     --header-buttons-button-size: calc(var(--general-font-size) * 2);
     --header-buttons-button-tooltip-size: calc(var(--general-font-size) * 0.9);
     --header-buttons-button-color: var(--color-text-primary);
-    --header-buttons-button-background-color: var(--color-background-primary);
+    --header-buttons-button-background-color: var(--color-background-secondary);
     --header-buttons-button-color-hover: var(--color-text-quaternary);
-    --header-buttons-button-background-color-hover: var(--color-background-tertiary);
+    --header-buttons-button-background-color-hover: var(--color-background-quaternary);
 
     // Main panel
     --main-background-color: transparent;
-    --main-page-background-color: var(--color-background-primary);
-    --main-page-border-color: var(--color-background);
-    --main-page-shadow-color: var(--color-background-secondary);
+    --main-page-background-color: var(--color-background-secondary);
+    --main-page-border-color: var(--color-background-primary);
+    --main-page-shadow-color: var(--color-background-tertiary);
 
     // Popup
-    --popup-background-color: var(--color-background-primary);
-    --popup-border-color: var(--color-background);
-    --popup-shadow-color: var(--color-background-secondary);
+    --popup-background-color: var(--color-background-secondary);
+    --popup-border-color: var(--color-background-primary);
+    --popup-shadow-color: var(--color-background-tertiary);
 
     // Footer panel
     --footer-background-color: transparent;
 
     // Core
     --fieldset-color: var(--color-text-secondary);
-    --fieldset-border-color: var(--color-background);
+    --fieldset-border-color: var(--color-background-primary);
 
     --button-font-size: var(--general-font-size);
     --button-color: var(--color-text-primary);
-    --button-background-color: var(--color-background);
+    --button-background-color: var(--color-background-primary);
     --button-color-active: var(--color-text-tertiary);
-    --button-background-color-active: var(--color-background-secondary);
+    --button-background-color-active: var(--color-background-tertiary);
     --button-color-highlight: var(--color-text-quaternary);
-    --button-background-color-highlight: var(--color-background-tertiary);
-    --button-color-highlight-active: var(--color-text-primary);
-    --button-background-color-highlight-active: var(--color-background-tertiary);
-    --button-outline-color: var(--color-background-tertiary);
+    --button-background-color-highlight: var(--color-background-quaternary);
+    --button-color-highlight-active: var(--color-text-quaternary);
+    --button-background-color-highlight-active: var(--color-background-quaternary);
+    --button-outline-color: var(--color-background-quaternary);
 
     --label-font-size: var(--general-font-size);
     --label-color: var(--color-text-primary);
 
     --input-font-size: var(--general-font-size);
     --input-color: var(--color-text-primary);
-    --input-background-color: var(--color-background);
-    --input-outline-color: var(--color-background-tertiary);
+    --input-background-color: var(--color-background-primary);
+    --input-outline-color: var(--color-background-quaternary);
 
     --checkbox-color: var(--color-text-primary);
-    --checkbox-background-color: var(--color-background);
-    --checkbox-border-color: var(--color-background);
-    --checkbox-outline-color: var(--color-background-tertiary);
+    --checkbox-background-color: var(--color-background-primary);
+    --checkbox-border-color: var(--color-background-primary);
+    --checkbox-outline-color: var(--color-background-quaternary);
 
     --radio-color: var(--color-text-primary);
-    --radio-background-color: var(--color-background);
-    --radio-border-color: var(--color-background);
-    --radio-outline-color: var(--color-background-tertiary);
+    --radio-background-color: var(--color-background-primary);
+    --radio-border-color: var(--color-background-primary);
+    --radio-outline-color: var(--color-background-quaternary);
 
     --select-font-size: var(--general-font-size);
     --select-color: var(--color-text-primary);
-    --select-background-color: var(--color-background);
-    --select-outline-color: var(--color-background-tertiary);
+    --select-background-color: var(--color-background-primary);
+    --select-outline-color: var(--color-text-quaternary);
+    --select-outline-background-color: var(--color-background-quaternary);
 
     --textarea-font-size: var(--general-font-size);
     --textarea-color: var(--color-text-primary);
-    --textarea-background-color: var(--color-background);
-    --textarea-outline-color: var(--color-background-tertiary);
+    --textarea-background-color: var(--color-background-primary);
+    --textarea-outline-color: var(--color-background-quaternary);
 
     --progress-font-size: var(--general-font-size);
     --progress-color: var(--color-text-primary);
-    --progress-bar-color: var(--color-background-tertiary);
-    --progress-bar-background-color: var(--color-background);
+    --progress-bar-color: var(--color-background-quaternary);
+    --progress-bar-background-color: var(--color-background-primary);
 
     --code-font-size: var(--general-font-size);
-    --code-background-color: var(--color-background-tertiary);
+    --code-background-color: var(--color-background-quaternary);
 
     // COMPONENTS
     --component-calendar-font-size: calc(var(--general-font-size) * 1.2);
-    --component-calendar-background: var(--color-background-primary);
-    --component-calendar-border-color: var(--color-background);
+    --component-calendar-background: var(--color-background-secondary);
+    --component-calendar-border-color: var(--color-background-primary);
     --component-calendar-text-color: var(--color-text-primary);
     --component-calendar-text-color-secondary: var(--color-text-secondary);
     --component-calendar-selected-color: var(--color-text-quaternary);
-    --component-calendar-selected-background-color: var(--color-text-tertiary);
+    --component-calendar-selected-background-color: var(--color-background-quaternary);
     --component-calendar-today-color: var(--color-text-primary);
-    --component-calendar-today-background-color: var(--color-background);
+    --component-calendar-today-background-color: var(--color-background-primary);
 
     --component-clock-font-size: calc(var(--general-font-size) * 1.2);
-    --component-clock-background: var(--color-background-primary);
-    --component-clock-border-color: var(--color-background);
+    --component-clock-background: var(--color-background-secondary);
+    --component-clock-border-color: var(--color-background-primary);
     --component-clock-text-color: var(--color-text-primary);
-    --component-clock-panel-background: var(--color-background-primary);
-    --component-clock-panel-border-color: var(--color-background);
-    --component-clock-panel-hand-hour: var(--color-background-tertiary);
-    --component-clock-panel-hand-minute: var(--color-background-tertiary);
-    --component-clock-panel-hand-second: var(--color-background-tertiary);
+    --component-clock-panel-background: var(--color-background-secondary);
+    --component-clock-panel-border-color: var(--color-background-primary);
+    --component-clock-panel-hand-hour: var(--color-background-quaternary);
+    --component-clock-panel-hand-minute: var(--color-background-quaternary);
+    --component-clock-panel-hand-second: var(--color-background-quaternary);
 
     --component-html-editor-toolbar-bar-background: transparent;
-    --component-html-editor-toolbar-bar-button-background: var(--color-background-primary);
-    --component-html-editor-toolbar-bar-button-border: var(--color-background);
+    --component-html-editor-toolbar-bar-button-background: var(--color-background-secondary);
+    --component-html-editor-toolbar-bar-button-border: var(--color-background-primary);
     --component-html-editor-toolbar-bar-button-color: var(--color-text-secondary);
-    --component-html-editor-toolbar-bar-button-highlight-background: var(--color-background-primary);
-    --component-html-editor-toolbar-bar-button-highlight-border: var(--color-background-tertiary);
+    --component-html-editor-toolbar-bar-button-highlight-background: var(--color-background-secondary);
+    --component-html-editor-toolbar-bar-button-highlight-border: var(--color-background-quaternary);
     --component-html-editor-toolbar-bar-button-highlight-color: var(--color-text-tertiary);
-    --component-html-editor-view-border: var(--color-background);
+    --component-html-editor-view-border: var(--color-background-primary);
 
     --component-datatable-font-size: var(--general-font-size);
     --component-datatable-text-color: var(--color-text-primary);
-    --component-datatable-background: var(--color-background);
-    --component-datatable-background-primary: var(--color-background-primary);
-    --component-datatable-background-secondary: var(--color-background-secondary);
-    --component-datatable-border: var(--color-background);
+    --component-datatable-background: var(--color-background-primary);
+    --component-datatable-background-primary: var(--color-background-secondary);
+    --component-datatable-background-secondary: var(--color-background-tertiary);
+    --component-datatable-border: var(--color-background-primary);
     --component-datatable-label-font-size: var(--general-font-size);
     --component-datatable-label-text-color: var(--color-text-primary);
-    --component-datatable-highlight-text-color: var(--color-text);
-    --component-datatable-highlight-background: var(--color-background-tertiary);
+    --component-datatable-highlight-text-color: var(--color-text-quaternary);
+    --component-datatable-highlight-background: var(--color-background-quaternary);
 
 }

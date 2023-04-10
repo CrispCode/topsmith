@@ -2,13 +2,14 @@
 
 'use strict'
 
-import { topsmith } from './../src/index.js'
+import { topsmith } from './../src/app.js'
+
+import { html } from '@crispcode/modux'
 
 import './app.scss'
 
 import { PageHome } from './pages/home'
 import { PageAccount } from './pages/account'
-import { PageNews } from './pages/news'
 
 import { PageComponents } from './pages/components'
 import { PageCss } from './pages/css'
@@ -22,6 +23,7 @@ import { SectionComponents } from './sections/components'
 
 window.addEventListener( 'load', () => {
   topsmith.debug( true )
+  console.log( topsmith )
 
   topsmith
     // Side
@@ -49,19 +51,20 @@ window.addEventListener( 'load', () => {
       icon: 'format_paint',
       tooltip: 'css',
       url: '/css',
-      match: /^\/css.*/i,
-      section: 'css'
+      match: /^\/css.*/i
     } )
     .set( 'side.menu.notifications', {
       order: 1,
       icon: 'notifications',
       tooltip: 'notifications',
-      url: '/notifications',
-      match: /^\/notifications$/i,
-      counter: '99'
+      counter: '99',
+      function: function () {
+        topsmith.popup( html( '<div>Notifications</div>' ) )
+      }
     } )
 
-    // Header
+  // Header
+  topsmith
     .set( 'header.buttons.account', {
       order: 1,
       icon: 'account_circle',
@@ -77,10 +80,10 @@ window.addEventListener( 'load', () => {
       match: /^\/logout$/i
     } )
 
-    // Pages
+  // Pages
+  topsmith
     .set( 'pages.home', PageHome )
     .set( 'pages.account', PageAccount )
-    .set( 'pages.news', PageNews )
 
     .set( 'pages.components', PageComponents )
     .set( 'pages.component-calendar', PageCalendar )
@@ -90,8 +93,9 @@ window.addEventListener( 'load', () => {
 
     .set( 'pages.css', PageCss )
 
-    // Sections
+  // Sections
+  topsmith
     .set( 'side.sections.components', SectionComponents )
 
-  topsmith.bootstrap( document.querySelector( '#topsmith' ) )
+  topsmith.bootstrap( document.querySelector( '#topsmith' ), document.querySelector( '#topsmith-styles' ) )
 } )

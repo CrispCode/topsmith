@@ -1,5 +1,5 @@
 # Topsmith
-- A framework used for creating administration pages for your website
+- A framework used to create administration pages for your website
 
 ## Installation
 ```
@@ -10,7 +10,7 @@
 
 - In order to locally test the application, use:
 ```
-    modux start
+    modux test
 ```
 - In order to generate files for production, use:
 ```

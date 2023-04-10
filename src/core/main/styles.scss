@@ -31,7 +31,7 @@
             margin: 10px;
             padding: 20px;
             border-radius: 6px;
-            @include shadow( 0px 0px 35px 0px var(--main-page-shadow-color) );
+            @include shadow( 0px 0px 15px 0px var(--main-page-shadow-color) );
             border: 2px solid var(--main-page-border-color);
             background-color: var(--main-page-background-color);
 

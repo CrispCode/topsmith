@@ -1,7 +1,6 @@
 'use strict'
 
-import { html } from '@crispcode/modux'
-import { topsmith } from './../../../src/index.js'
+import { topsmith } from './../../../src/app.js'
 
 import template from './template.html'
 import './styles.scss'
@@ -19,9 +18,5 @@ export class PageHome extends topsmith.classes.Page {
     return {
       size: 'x2'
     }
-  }
-
-  execute () {
-    // topsmith.popup( html( '<div>hello</div>' ) )
   }
 }

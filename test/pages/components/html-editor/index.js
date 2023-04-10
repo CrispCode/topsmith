@@ -1,6 +1,6 @@
 'use strict'
 
-import { topsmith, ComponentHtmlEditor } from './../../../../src/index.js'
+import { topsmith, ComponentHtmlEditor } from './../../../../src/app.js'
 
 import template from './template.html'
 import './styles.scss'

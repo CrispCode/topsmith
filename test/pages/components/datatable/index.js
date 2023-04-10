@@ -1,6 +1,6 @@
 'use strict'
 
-import { topsmith, ComponentDatatable } from './../../../../src/index.js'
+import { topsmith, ComponentDatatable } from './../../../../src/app.js'
 
 import template from './template.html'
 import './styles.scss'

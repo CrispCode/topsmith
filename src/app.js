@@ -6,10 +6,11 @@ import {
   Module,
 
   extend,
+  html,
   logger
 } from '@crispcode/modux'
 
-import './styles.scss'
+import styles from './styles.inline.scss'
 
 import { Frame } from './core/frame'
 import { Page } from './core/page'
@@ -33,6 +34,7 @@ class Topsmith {
 
     this.app.store.set( 'topsmith', defaults )
 
+    this.style = html( '<style></style>' )
     this.element = document.querySelector( 'body' )
   }
 
@@ -48,7 +50,14 @@ class Topsmith {
     logger.enabled( debugging )
   }
 
-  bootstrap ( element, configuration = {} ) {
+  bootstrap ( element = null, style = null, configuration = {} ) {
+    // Add styles
+    this.style = style || this.style
+    this.style.append( styles )
+    if ( !style ) {
+      document.head.append( this.style )
+    }
+
     // Start application
     this.element = element || this.element
     this.app.store.set( 'topsmith', extend( this.app.store.get( 'topsmith' ), configuration ) )

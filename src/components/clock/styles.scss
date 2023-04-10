@@ -117,6 +117,8 @@
             text-align: center;
             width: 100%;
             appearance: none;
+            color: var(--component-clock-text-color);
+            background-color: var(--component-clock-background);
             border: 2px solid var(--component-clock-border-color);
             outline: 0;
         }

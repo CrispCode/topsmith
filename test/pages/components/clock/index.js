@@ -1,6 +1,6 @@
 'use strict'
 
-import { topsmith, ComponentClock } from './../../../../src/index.js'
+import { topsmith, ComponentClock } from './../../../../src/app.js'
 
 import template from './template.html'
 import './styles.scss'

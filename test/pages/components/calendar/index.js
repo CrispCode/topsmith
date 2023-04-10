@@ -1,6 +1,6 @@
 'use strict'
 
-import { topsmith, ComponentCalendar } from './../../../../src/index.js'
+import { topsmith, ComponentCalendar } from './../../../../src/app.js'
 
 import template from './template.html'
 import './styles.scss'

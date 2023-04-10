@@ -209,7 +209,7 @@ html, body {
     box-sizing: border-box;
     position: relative;
     font-size: var(--select-font-size);
-    color: var(--select-color);    
+    color: var(--select-color);
     width: 100%;
     padding: 13px;
     border-radius: 5px;
@@ -225,7 +225,8 @@ html, body {
         border-radius: 5px;
 
         &:checked, &:hover {
-            background-color: var(--select-outline-color);
+            color: var(--select-outline-color);
+            background-color: var(--select-outline-background-color);
         }
     }
 
@@ -240,8 +241,7 @@ html, body {
     margin: 5px 0;
     padding: 1em;
     border-radius: 5px;
-    border: 1px solid var(--fieldset-border-color);
-    box-shadow: 0 0 2px 1px var(--fieldset-border-color);
+    border: 2px solid var(--fieldset-border-color);
 
     & > legend {
         font-weight: 500;
@@ -306,5 +306,6 @@ html, body {
     box-sizing: border-box;
     border-radius: 5px;
     font-size: var(--code-font-size);
+    color: var(--color-text-quaternary);
     background-color: var(--code-background-color);
 }
