@@ -2,7 +2,7 @@
 
 'use strict'
 
-import { topsmith } from './../src/app.js'
+import { topsmith } from './../src/index.js'
 
 import { html } from '@crispcode/modux'
 
